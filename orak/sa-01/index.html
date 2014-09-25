@@ -1,0 +1,26 @@
+<canvas id="mycanvas" width='600' height='300'>
+</canvas>
+<script>
+function animate ()
+{
+  i++;
+  context.clearRect(0,0,canvas.width,canvas.height);
+  context.font = '38pt liberation sans';
+  context.fillStyle = 'cornflowerblue';
+  context.strokeStyle = 'blue';
+
+  context.fillText("Hello Canvas "+i, canvas.width/2 - 150,
+                                 canvas.height/2 + 15);
+
+  context.strokeText("Hello Canvas", canvas.width/2 - 150,
+                                   canvas.height/2 + 15 );
+  window.requestAnimationFrame(animate);
+}
+window.addEventListener("load", function(){
+  i=0;
+  canvas = document.getElementById('mycanvas'),
+  context = canvas.getContext('2d');
+  animate();
+});
+</script>
+
