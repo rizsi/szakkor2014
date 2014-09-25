@@ -12,7 +12,7 @@ layout: default
  * elkötelezett hívője vagyok a szabad szoftvereknek.
  * csak szabad eszközöket fogok tanítani - a nem szabad szoftverek oktatása középiskolában nem etikus szerintem (Lásd: [angol nyelvű gyakori kérdések oktatás és szabad szoftverek témában](http://www.gnu.org/education/edu-faq.html))
  * Minden eszköz, amin dolgozunk ingyen letölthető, és szabadon használható. A működése megismerhető, és átalakítható. GNU/Linux esetén maga az operációs rendszer is.
- * szabad szoftver 4 alapjogot biztosít korlátozás nélkül: (Forrás: [Free Software Foundation] (http://fsf.hu/))
+ * szabad szoftver 4 alapjogot biztosít korlátozás nélkül: (Forrás: [Free Software Foundation] (http://fsf.hu) )
    * A szoftver bármilyen célra felhasználható.
    * Lehetőség van a szoftver működésének szabad tanulmányozására és módosítására.
    * Szabadon terjeszthető, továbbadható.
@@ -20,18 +20,8 @@ layout: default
 
  * [GNU kiáltvány](http://gnu.hu/gnu-kialtvany.html) - a legfontosabb alap olvasmány a témában
 
-##Önálló munka
- * Minden ismeret megszerezhető önállóan az internetről!
- * A **legfontosabb** cél az, hogy **megtanuljátok hogyan kell az ismeretekhez hozzájutni** önállóan! Nem pedig az, hogy mindent elsajátítsatok az órákon!
- * A legfontosabb források:
-  * cikkek
-  * fórumok
-  * ingyenes tananyagok
-  * oktató videók
-  * A használt programok forráskódja
-
-##Önálló munka 2
- * Gyakorolni kell!
+##Önálló munka - gyakorlás
+ * Gyakorolni kell! Gyakorlat nélkül nem lehet megtanulni programozni.
  * Bármit lehet programozni, amihez kedvetek van. Példák:
   * Játék - platformer, 3d, point and click, szöveges szerepjáték
   * Fizikai folyamat modellezése - rugó, inga, bolygómozgás
@@ -39,13 +29,27 @@ layout: default
   * Kommunikációs program: chat, levelező, telefon, videotelefon
  * Az óra csak a fonál elkapásához elegendő! Belső indíttatású célokat érdemes követni!
 
-##Önálló munka 3
+##Önálló munka - keresés, kutatás
+ * Minden ismeret megszerezhető önállóan az internetről!
+ * A **legfontosabb** cél az, hogy **megtanuljátok hogyan kell az ismeretekhez hozzájutni** önállóan! Nem pedig az, hogy mindent elsajátítsatok az órákon!
+ * A legfontosabb források, amiknek a használatáról lesz szó:
+  * kereső
+  * cikkek
+  * fórumok
+  * ingyenes tananyagok
+  * oktató videók
+  * A használt programok forráskódja
+
+##Önálló munka - eszközök
  * Mi kell az önálló munkához?
   * Saját számítógép - de legalábbis gépidő a közös gépen, vagy az iskolain
    * Nem kell erőgépnek lennie, a célokat az eszközhöz kell igazítani
    * Legjobb ha szabad szoftverekkel használod! GNU/Linux, (haladóknak xBSD, Minix): ingyen letöltheted és telepítheted!
   * Internet elérés - lehetőleg gyors válaszidejű
   * Tablet, okostelefon szerintem nem alkalmas a célra
+
+##Számonkérés
+ * A másodiktól kezdve minden óra elején lesz egy 5 perces "röpdolgozat". Ennek a kérdései segítenek abban, hogy érezzétek, hogy valóban sikerült-e elsajátítani az előző óra anyagát, vagy pedig hiányosság maradt a tudásotokban?
 
 ##Egészség
  * A számítógép ne menjen az egészség rovására:
