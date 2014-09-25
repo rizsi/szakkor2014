@@ -23,22 +23,22 @@ layout: default
 ##Önálló munka - gyakorlás
  * Gyakorolni kell! Gyakorlat nélkül nem lehet megtanulni programozni.
  * Bármit lehet programozni, amihez kedvetek van. Példák:
-  * Játék - platformer, 3d, point and click, szöveges szerepjáték
-  * Fizikai folyamat modellezése - rugó, inga, bolygómozgás
-  * Matematikai jelenség ábrázolása - fraktálok megjelenítése, például Mandelbrot halmaz
-  * Kommunikációs program: chat, levelező, telefon, videotelefon
+   * Játék - platformer, 3d, point and click, szöveges szerepjáték
+   * Fizikai folyamat modellezése - rugó, inga, bolygómozgás
+   * Matematikai jelenség ábrázolása - fraktálok megjelenítése, például Mandelbrot halmaz
+   * Kommunikációs program: chat, levelező, telefon, videotelefon
  * Az óra csak a fonál elkapásához elegendő! Belső indíttatású célokat érdemes követni!
 
 ##Önálló munka - keresés, kutatás
  * Minden ismeret megszerezhető önállóan az internetről!
  * A **legfontosabb** cél az, hogy **megtanuljátok hogyan kell az ismeretekhez hozzájutni** önállóan! Nem pedig az, hogy mindent elsajátítsatok az órákon!
  * A legfontosabb források, amiknek a használatáról lesz szó:
-  * kereső
-  * cikkek
-  * fórumok
-  * ingyenes tananyagok
-  * oktató videók
-  * A használt programok forráskódja
+   * kereső
+   * cikkek
+   * fórumok
+   * ingyenes tananyagok
+   * oktató videók
+   * A használt programok forráskódja
 
 ##Önálló munka - eszközök
  * Mi kell az önálló munkához?
