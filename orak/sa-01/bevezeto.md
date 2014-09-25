@@ -12,7 +12,7 @@ layout: default
  * elkötelezett hívője vagyok a szabad szoftvereknek.
  * csak szabad eszközöket fogok tanítani - a nem szabad szoftverek oktatása középiskolában nem etikus szerintem (Lásd: [angol nyelvű gyakori kérdések oktatás és szabad szoftverek témában](http://www.gnu.org/education/edu-faq.html))
  * Minden eszköz, amin dolgozunk ingyen letölthető, és szabadon használható. A működése megismerhető, és átalakítható. GNU/Linux esetén maga az operációs rendszer is.
- * szabad szoftver 4 alapjogot biztosít korlátozás nélkül: Forrás: [Free Software Foundation] (http://fsf.hu/)
+ * szabad szoftver 4 alapjogot biztosít korlátozás nélkül: Forrás: [Free Software Foundation](http://fsf.hu/)
    * A szoftver bármilyen célra felhasználható.
    * Lehetőség van a szoftver működésének szabad tanulmányozására és módosítására.
    * Szabadon terjeszthető, továbbadható.
