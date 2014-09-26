@@ -4,11 +4,32 @@
 <br/>
 <a href="index.html">Óra vázlata</a>
 <script>
+function loadImage(src)
+{
+	var image=new Image(); image.src=src; return image;
+}
+function initialize()
+{
+  player=
+  {
+    x:canvas.width/2,
+    y:canvas.height/2,
+    phase1:loadImage("player.png"),
+  };
+  keys = [];
+  document.body.addEventListener("keydown", function(e) {
+    keys[e.keyCode] = true;
+  });
+ 
+  document.body.addEventListener("keyup", function(e) {
+    keys[e.keyCode] = false;
+  });
+}
 function animate ()
 {
   i++;
   context.clearRect(0,0,canvas.width,canvas.height);
-  context.font = '38pt liberation sans';
+/*  context.font = '38pt liberation sans';
   context.fillStyle = 'cornflowerblue';
   context.strokeStyle = 'blue';
 
@@ -17,12 +38,25 @@ function animate ()
 
   context.strokeText("Hello Canvas", canvas.width/2 - 150,
                                    canvas.height/2 + 15 );
+*/
+  context.fillStyle = "red";
+  context.fillRect(player.x,player.y, 10, 10);
+  context.drawImage(player.phase1, player.x, player.y);
+  if(keys[39])
+  {
+    player.x++;
+  }
+  if(keys[37])
+  {
+    player.x--;
+  }
   window.requestAnimationFrame(animate);
 }
 window.addEventListener("load", function(){
   i=0;
   canvas = document.getElementById('mycanvas'),
   context = canvas.getContext('2d');
+  initialize();
   animate();
 });
 </script>

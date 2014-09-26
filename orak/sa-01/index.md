@@ -8,6 +8,7 @@ layout: default
 ##Cél
  * egyszerű animáció készítése HTML+JavaScript+Canvas technológiával
  * [Az óra anyagához tartozó kész program](program.html)
+ * [Hasonló program, ami alapján dolgoztam](http://www.somethinghitme.com/2013/01/09/creating-a-canvas-platformer-tutorial-part-one/)
 
 ##HTML
  * Weboldal leíró nyelv
