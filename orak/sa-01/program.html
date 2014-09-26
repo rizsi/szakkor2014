@@ -13,7 +13,7 @@ function initialize()
   player=
   {
     x:canvas.width/2,
-    y:canvas.height/2,
+    y:canvas.height-10,
     phase1:loadImage("player.png"),
   };
   keys = [];
@@ -40,8 +40,10 @@ function animate ()
                                    canvas.height/2 + 15 );
 */
   context.fillStyle = "red";
-  context.fillRect(player.x,player.y, 10, 10);
-  context.drawImage(player.phase1, player.x, player.y);
+  context.fillRect(0,canvas.height-10, canvas.width, 10);
+  context.fillStyle = "green";
+  context.fillRect(0, 0, canvas.width, canvas.height-10);
+  context.drawImage(player.phase1, player.x-5, player.y-20);
   if(keys[39])
   {
     player.x++;
@@ -60,4 +62,3 @@ window.addEventListener("load", function(){
   animate();
 });
 </script>
-

@@ -51,4 +51,30 @@ layout: default
  * window.requestAnimationFrame(animate);
   Az általunk definiált animate nevű metódust hívja úrja a rendszer amikor a következő képkockát lehet kirajzolni. Ha a gép/program nem túl lassú, akkor ennek hatására az "animate" metódus 60-szor fog lefutni egy másodperc alatt, folyamatos mozgás érzetét keltve.
 
+##Házi feladat
+ * Az alábbi ötletek nagyjából nehézségi sorrendben vannak.
+ * Mindenkinek javaslom, hogy legalább két-három pontot csináljon végig!
+ * A legtöbb feladathoz meg kell keresni az Interneten, hogy hogyan lehet megvalósítani.
+ * Ha elakadsz, ne add fel! Kérdezz a többiektől, vagy tőlünk!
+ * Ha bármi más eszedbe jut, azt is valósítsd meg, és mutasd meg a legközelebbi órán!
+   * Állítsd át a talaj színét sárgára! (yellow)
+   * Állítsd át a talaj színét Red Green Blue komponensekkel megadott színre! Lásd: [CSS colors az RGB résznél](http://www.w3schools.com/cssref/css_colors_legal.asp)
+   * Legyen a kép háttere világoskék! (a talajhoz hasonlóan egy téglalapot lehet rajzolni, kék színnel (0, 0, canvas.width/2, canvas.height/2) koordinátákkal)
+   * Rajzold át úgy a játékos képét (player.png), hogy átlátszó legyen a háttere, ne fehér! Ehhez egy rajzolóprogramot kell használnod. Például: [GIMP](http://www.gimp.org/)
+     * Hogyan csináld? Keresőszó tipp: "gimp transparent background"
+     * Egy működő találat: [Youtube videó arról, hogy hogyan lehet egy kép hátterét átlátszóvá tenni](https://www.youtube.com/watch?v=AC5vdKuwTp0)
+   * Készíts egy új objektumot!
+     * Rajzold meg az új elem képét egy png fájlba! (például [GIMP](http://www.gimp.org/) segítségével)
+     * A főhőshöz hasonló programkóddal töltsd be a képet a programba és rajzold ki valahova!
+   * A díszítő objektumot mozgasd valamilyen képlet szerint a képernyőn!
+     * Például egy madarat színusz függvény szerint az égen balról jobbra, majd ha jobb oldalt eltűnt, akkor bal oldalon jöjjön be újra!
+   * Valósítsd meg a főhős lábainak (és kezeinek) animálását, ahogy halad előre:
+     * Rajzold meg az animáció fázisait! (pl 4 fázist készíts el!)
+     * A program töltse be az összes fázist egy tömbbe!
+     * A tömb elemeit váltogatva rajzold ki, amikor a főhős mozog! (például minden tizedik újrarajzolás (frame) másik fázis mutasson)
+     * Gondold végig (és valósítsd meg), hogy mi kell ahhoz, hogy a mozgás hihetően nézzen ki?
+   * Rajzolhatsz pálcikaembert is, aminek teljesen folyamatos lehet az animációja. Keresőszó: "canvas how to draw line". [Vonal rajzolása](http://www.w3schools.com/tags/canvas_lineto.asp) [Vonal színének beállítása](http://www.w3schools.com/tags/canvas_strokestyle.asp)
+
+
+
 
