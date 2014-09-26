@@ -7,7 +7,7 @@ Programozó szakkör 2014/2015
 A szakkörön szabad szoftverek használatával modern programozási ismereteket mutatunk be. Érintjük a fizika, és a matematika határterületeit.
 
 A szakkört ketten tartjuk:
- * Horváth Rudolf
+ * Horváth Rudolf - egyetemi hallgató, villamosmérnök és hobbi programozó
  * Schmidt András - informatikus, a gimnázium 2011-es magyarok a marson csapatának vezetője és kretinológus
 
 Weboldal: https://github.com/rizsi/szakkor2014
