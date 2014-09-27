@@ -17,8 +17,8 @@ layout: default
    * Lehetőség van a szoftver működésének szabad tanulmányozására és módosítására.
    * Szabadon terjeszthető, továbbadható.
    * Lehetőség van a szoftver továbbfejlesztésére és a fejlesztés közreadására.
-
  * [GNU kiáltvány](http://gnu.hu/gnu-kialtvany.html) - a legfontosabb alap olvasmány a témában
+ * Kérdés: ki milyen operációs rendszert és milyen böngészőt használ?
 
 ##Önálló munka - gyakorlás
  * Gyakorolni kell! Gyakorlat nélkül nem lehet megtanulni programozni.
@@ -28,6 +28,7 @@ layout: default
    * Matematikai jelenség ábrázolása - fraktálok megjelenítése, például Mandelbrot halmaz
    * Kommunikációs program: chat, levelező, telefon, videotelefon
  * Az óra csak a fonál elkapásához elegendő! Belső indíttatású célokat érdemes követni!
+ * Kérdés: ki írt már programot? Ki írt már programot önállóan?
 
 ##Önálló munka - keresés, kutatás
  * Minden ismeret megszerezhető önállóan az internetről!
@@ -39,6 +40,9 @@ layout: default
    * ingyenes tananyagok
    * oktató videók
    * A használt programok forráskódja
+ * Angol nyelv
+   * Elkerülhetetlen a szakmai témák angol nyelvű olvasása!
+   * Könnyű megtanulni az alap szókincset, nyelvtanilag meg egyszerűek szoktak lenni.
 
 ##Önálló munka - eszközök
  * Mi kell az önálló munkához?
@@ -47,6 +51,7 @@ layout: default
    * Legjobb ha szabad szoftverekkel használod! GNU/Linux, (haladóknak xBSD, Minix): ingyen letöltheted és telepítheted!
   * Internet elérés - lehetőleg gyors válaszidejű
   * Tablet, okostelefon szerintem nem alkalmas a célra
+ * Kérdés: kinek van számítógépe és Internete otthon?
 
 ##Számonkérés
  * A másodiktól kezdve minden óra elején lesz egy 5 perces "röpdolgozat". Ennek a kérdései segítenek abban, hogy érezzétek, hogy valóban sikerült-e elsajátítani az előző óra anyagát, vagy pedig hiányosság maradt a tudásotokban?
@@ -63,4 +68,6 @@ layout: default
  * Ha megtanulsz programozni bármilyen nyelvre át tudsz térni
  * HTML+Javascript-et fogunk használni a böngészőben, és JavaScriptet(node.js) web szerveren, így csak egy nyelvet tanulunk együtt
  * Weboldalakat fogunk együtt előállítani, amiket az Interneten meg fogtok tudni osztani
+ * Kérdés: ismer valaki programozási nyelveket már? Miket, mi a kedvence?
+
 
