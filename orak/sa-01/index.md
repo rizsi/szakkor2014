@@ -66,15 +66,24 @@ layout: default
    * Készíts egy új objektumot!
      * Rajzold meg az új elem képét egy png fájlba! (például [GIMP](http://www.gimp.org/) segítségével)
      * A főhőshöz hasonló programkóddal töltsd be a képet a programba és rajzold ki valahova!
-   * A díszítő objektumot mozgasd valamilyen képlet szerint a képernyőn!
+     * A díszítő objektumot mozgasd valamilyen képlet szerint a képernyőn!
      * Például egy madarat színusz függvény szerint az égen balról jobbra, majd ha jobb oldalt eltűnt, akkor bal oldalon jöjjön be újra!
    * Valósítsd meg a főhős lábainak (és kezeinek) animálását, ahogy halad előre:
-     * Rajzold meg az animáció fázisait! (pl 4 fázist készíts el!)
+     * Rajzold meg az animáció fázisait! (pl. 4 fázist készíts el 4 különböző képfájlba a rajzolóprogrammal!)
      * A program töltse be az összes fázist egy tömbbe!
      * A tömb elemeit váltogatva rajzold ki, amikor a főhős mozog! (például minden tizedik újrarajzolás (frame) másik fázis mutasson)
      * Gondold végig (és valósítsd meg), hogy mi kell ahhoz, hogy a mozgás hihetően nézzen ki?
    * Rajzolhatsz pálcikaembert is, aminek teljesen folyamatos lehet az animációja. Keresőszó: "canvas how to draw line". [Vonal rajzolása](http://www.w3schools.com/tags/canvas_lineto.asp) [Vonal színének beállítása](http://www.w3schools.com/tags/canvas_strokestyle.asp)
-
+   * Hozz Létre egy [github](https://github.com) felhasználót és...
+     * ez ingyenesen megtehető, de **személyes adatok megadása kell hozzá, csak akkor csináld ha ez neked belefér**. A mikéntjét neked kell megtalálni.
+     * **Amit githubra felteszel, azt azonnal publikálod az egész világon, ezért jól gondold meg, hogy mit teszel fel!**
+     * Forkold le a szakkör oldalát!
+     * Az általad módosított változatot egy külön könyvtárba másold be a git repo könyvtárán belül (pl. orak/xy-01/... ide kerül a program.html és a hozzá tartozó képek)!
+     * Az általad átírt változatot tedd fel a publikus tárolóba! (keresőszavak: "git commit", "git push")
+     * Ellenőrizd, hogy az általad átírt játék változat elérhető lett-e az Internetről elérve, be tudja-e tölteni a programot a böngésző például a http://userneved.github.io/szakkor2014/orak/xy-01/program.html oldalon. Ha nem, akkor miért nem működik, és hogy lehetne megjavítani?
+     * Ha készen vagy, akkor küldj egy [pull requestet](https://help.github.com/articles/using-pull-requests), amit mi be tudunk fogadni, és ezzel felkerül az általad írt változat is a szakkör oldalára.
+   * Nézd meg egy tetszőleges szabad szoftver játék forráskódját az Interneten! Próbálj megérteni belőle részeket, vagy akár az egész játék működését! [Például a 2048 játék forráskódja megtekinthető itt](https://github.com/gabrielecirulli/2048/)
+   * Olvasd el a [GNU kiáltvány](http://gnu.hu/gnu-kialtvany.html)t! Mit gondolsz róla?
 
 
 
