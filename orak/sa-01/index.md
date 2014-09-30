@@ -5,6 +5,11 @@ layout: default
  * [2014/2015 informatika szakkör](../../index.html) első órája
  * [Bevezető](bevezeto.html)
 
+##Adminisztráció
+ * Egy papírra mindenki írja fel a nevét és az emailcímét
+ * Mindenki írjon egy emailt mindekettőnknek: címek a táblára
+  * Felvesszük a szakkör levelezési listájára
+
 ##Cél
  * egyszerű animáció készítése HTML+JavaScript+Canvas technológiával
  * [Az óra anyagához tartozó induló program](start.html)
