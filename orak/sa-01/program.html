@@ -1,0 +1,31 @@
+<meta charset="UTF-8">
+<canvas id="mycanvas" width='600' height ='300'></canvas>
+<br/>
+Ez az első HTML+JS programunk.
+<script>
+function initialize ()
+{
+	canvas = document.getElementById('mycanvas');
+	context = canvas.getContext('2d');
+	position = 0;
+}
+function animate()
+{
+	context.clearRect(0,0,canvas.width, canvas.height);
+	context.fillStyle="red";
+	context.fillRect(position,0,100,100);
+	position++;
+	if(position>600)
+	{
+		position=0;
+	}
+	window.requestAnimationFrame(animate);
+}
+
+window.addEventListener("load", function()
+{
+	initialize();
+	animate();
+});
+</script>
+
