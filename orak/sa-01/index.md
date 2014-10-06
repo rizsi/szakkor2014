@@ -7,7 +7,7 @@ layout: default
 
 ##Adminisztráció
  * Egy papírra mindenki írja fel a nevét és az emailcímét
- * Mindenki írjon egy emailt mindekettőnknek: címek a táblára
+ * Mindenki írjon egy emailt mindkettőnknek: címek a táblára
   * Felvesszük a szakkör levelezési listájára
 
 ##Cél
