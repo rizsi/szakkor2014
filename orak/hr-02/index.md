@@ -79,7 +79,7 @@ layout: default
 [link a "játékra"](http://rizsi.github.io/szakkor2014/orak/hr-02/game.html)
 
 <canvas id="mycanvas" width='600' height ='300'></canvas>
-<script src="scripts.js"></script>
+<script src="script.js"></script>
 
 
 -------------------------------
