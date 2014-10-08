@@ -40,7 +40,10 @@ layout: default
 
 ###Kép betöltése, kirajzolása
 
- - Képek letöltése: [háttér]( http://rizsi.github.io/szakkor2014/orak/hr-02/background.png) (600x300px) , [játékos]( http://rizsi.github.io/szakkor2014/orak/hr-02/stickman.png) (16x64px)
+ - Képek letöltése:
+   - [háttér]( http://rizsi.github.io/szakkor2014/orak/hr-02/background.png) (600x300px)
+   - [játékos]( http://rizsi.github.io/szakkor2014/orak/hr-02/stickman.png) (16x64px)
+   - A képek a következő weblapról származnak: [opengamearts.org](http://opengameart.org/content/glitch-ilmenskie-undergroundcave-terrain-svg)
  - Háttérkép betöltése Javascript-ben
  - Kép kirajzolása
  - Játékos kirajzolása (a talaj a felső kerettől 240 pixel távol van)
@@ -53,3 +56,11 @@ layout: default
 ###Óra végi extra, ha jut idő
 
  - Gyorsuló hatás hozzáadása a mozgáshoz --> sebesség megadása
+ 
+-------------------------------
+
+##Házi feladat
+
+ - Mozgó felhők elhelyezése a pályán.
+  - Kép hozzá: [misztikus felhő](http://rizsi.github.io/szakkor2014/orak/hr-02/mistic_cloud.png)
+  - extra: több darab, különböző sebességekkel, különböző méretűek --> Nézd meg hogyan lehet Javascript canvas-ban átméretezni
