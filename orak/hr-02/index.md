@@ -58,21 +58,23 @@ layout: default
  - Gyorsuló hatás hozzáadása a mozgáshoz --> sebesség megadása
  - Elmélet hozzá:
 
-maxsebesseg = 5 
-sebesseg = 0 
- 
-ha jobbraLenyomva: 
-    sebesseg++ 
-    ha sebesseg > maxsebesseg: 
-        sebesseg = maxsebesseg 
-ha jobbraNincsLenyomva: 
-    sebesseg-- 
-    ha sebesseg < 0: 
+
+        maxsebesseg = 5 
         sebesseg = 0 
- 
-ha balraLenyomva: 
-    gondolkozz rajta! 
-    (lehet az előző sorokon is változtatni kell hozzá, ki tudja... :) 
+         
+        ha jobbraLenyomva: 
+            sebesseg++ 
+            ha sebesseg > maxsebesseg: 
+                sebesseg = maxsebesseg 
+        ha jobbraNincsLenyomva: 
+            sebesseg-- 
+            ha sebesseg < 0: 
+                sebesseg = 0 
+         
+        ha balraLenyomva: 
+            gondolkozz rajta! 
+            (lehet az előző sorokon is változtatni kell hozzá, ki tudja... :)
+
  
 -------------------------------
 
