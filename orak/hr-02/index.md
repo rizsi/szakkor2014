@@ -31,12 +31,18 @@ layout: default
 
 ---------------------------
 
-##Bemelegítés
+##Órai anyag
+
+###Bemelegítés
 
  - Vegyük elő a legutoljára elkészített programunkat: [1. óra](http://rizsi.github.io/szakkor2014/orak/sa-01/program.html)
  - Töltsük le a forráskódját és nyissuk meg egy szövegszerkesztőben.
- - 
+
+###Kép betöltése, kirajzolása
+
+ - Képek letöltése: [háttér]( http://rizsi.github.io/szakkor2014/orak/hr-02/background.png) , [játékos]( http://rizsi.github.io/szakkor2014/orak/hr-02/stickman.png)
+ - Háttérkép betöltése Javascript-ben
+ - Kép kirajzolása
+ - Játékos kirajzolása (a talaj a felső keettől 240 pixel távol van)
  
- (240px-nél van a talaj)
-
-
+###Interakció a billentyűzettel
