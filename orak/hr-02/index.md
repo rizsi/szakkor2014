@@ -81,5 +81,5 @@ layout: default
 ##Házi feladat
 
  - Mozgó felhők elhelyezése a pályán.
-  - Kép hozzá: [misztikus felhő](http://rizsi.github.io/szakkor2014/orak/hr-02/mistic_cloud.png)
-  - extra: több darab, különböző sebességekkel, különböző méretűek --> Nézd meg hogyan lehet Javascript canvas-ban átméretezni
+   - Kép hozzá: [misztikus felhő](http://rizsi.github.io/szakkor2014/orak/hr-02/mistic_cloud.png)
+   - extra: több darab, különböző sebességekkel, különböző méretűek --> Nézd meg hogyan lehet Javascript canvas-ban átméretezni
