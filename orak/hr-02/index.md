@@ -40,9 +40,16 @@ layout: default
 
 ###Kép betöltése, kirajzolása
 
- - Képek letöltése: [háttér]( http://rizsi.github.io/szakkor2014/orak/hr-02/background.png) , [játékos]( http://rizsi.github.io/szakkor2014/orak/hr-02/stickman.png)
+ - Képek letöltése: [háttér]( http://rizsi.github.io/szakkor2014/orak/hr-02/background.png) (600x300px) , [játékos]( http://rizsi.github.io/szakkor2014/orak/hr-02/stickman.png) (16x64px)
  - Háttérkép betöltése Javascript-ben
  - Kép kirajzolása
- - Játékos kirajzolása (a talaj a felső keettől 240 pixel távol van)
+ - Játékos kirajzolása (a talaj a felső kerettől 240 pixel távol van)
  
 ###Interakció a billentyűzettel
+ 
+ - Billentyűzet leütések figyelése
+ - Mozgás létrehozása
+ 
+###Óra végi extra, ha jut idő
+
+ - Gyorsuló hatás hozzáadása a mozgáshoz --> sebesség megadása
