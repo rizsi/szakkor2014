@@ -31,4 +31,12 @@ layout: default
 
 ---------------------------
 
+##Bemelegítés
+
+ - Vegyük elő a legutoljára elkészített programunkat: [1. óra](http://rizsi.github.io/szakkor2014/orak/sa-01/program.html)
+ - Töltsük le a forráskódját és nyissuk meg egy szövegszerkesztőben.
+ - 
+ 
+ (240px-nél van a talaj)
+
 
