@@ -30,20 +30,39 @@ layout: default
  - Vegyük elő a legutoljára elkészített programunkat: [2. óra](http://rizsi.github.io/szakkor2014/orak/hr-02/game.html)
  - Töltsük le a forráskódját és nyissuk meg egy szövegszerkesztőben.
 
-###
+###Elkészült házi feladatok megtekintése
 
- - 
+ - Mindenkiére vetünk egy pillantást
+ - Akinek kedve van elmagyarázhatja hogyan csinálta ;)
  
-###
+###Objektumok a Javascriptben
+
+ - A Javascript nagyon rugalmas, figyelni kell rá, hogy más programozási nyelvekben szigorúbbak a szabályok (és ez jó)
+ - Player objektum elkészítése x, y koordinátákkal, képpel
+ - Felhő objektum elkészítése
+
+###Véletlen szám generálás
  
- - 
+ - Maga a generálás egyszerű: `Math.random();`
+  - A függvény visszatérési értéke egy 0 és 1 közötti véletlen szám.
+ - Mire használhatjuk?
+  - Véletlenül jelennek meg felhők (3db), véletlen sebességgel és mérettel
+   - `context.drawImage(img,x,y,width,height);` --> méret megváltoztatása (hasznos tudni előtte az eredeti méretet)
+   - `canvas2d.globalAlpha = 0.5;` --> 50%-os átlátszóság beállítása
  
+###Szöveg kirajzolás
+
+ - A használható parancs: `context.fillText("szoveg",x,y);`
+ - A szöveg tárolása változóban ugyanúgy mint egy számot
+
 ###Óra végi extra, ha jut idő
 
  - Megtett táv kiírása:
    - eltárolod a helyzetedet az előző képkockában
    - mozogsz
-   - az eddigi távhoz hozzáadod a mostani és az előző helyzeted távolságát --> 
+   - az eddigi távhoz hozzáadod a mostani és az előző helyzeted távolságát --> Pitagorasz tétel
+ - Guggoló helyzet a le billentyűzetre
+  - Felhasználható kép: [link](http://rizsi.github.io/szakkor2014/orak/hr-03/guggol.png)
  
 -------------------------------
 
