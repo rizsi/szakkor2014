@@ -1,0 +1,29 @@
+<meta charset="utf-8">
+<canvas id="mycanvas" width='600' height='300'>
+</canvas>
+<br/>
+<a href="index.html">Óra vázlata</a>
+<a href="player.png">A főhős képének letöltése</a>
+<script>
+function loadImage(src)
+{
+	var image=new Image(); image.src=src; return image;
+}
+function initialize()
+{
+  canvas = document.getElementById('mycanvas'),
+  context = canvas.getContext('2d');
+  kep=loadImage("player.png");
+}
+function animate ()
+{
+  context.clearRect(0,0,canvas.width,canvas.height);
+  context.drawImage(kep, 100, 100);
+  window.requestAnimationFrame(animate);
+}
+window.addEventListener("load", function(){
+  initialize();
+  animate();
+});
+</script>
+

@@ -81,13 +81,13 @@ layout: default
  * A legtöbb feladathoz meg kell keresni az Interneten, hogy hogyan lehet megvalósítani.
  * Ha elakadsz, ne add fel! Kérdezz a többiektől, vagy tőlünk!
  * Ha bármi más eszedbe jut, azt is valósítsd meg, és mutasd meg a legközelebbi órán!
-   * Állítsd át a talaj színét sárgára! (yellow)
-   * Állítsd át a talaj színét Red Green Blue komponensekkel megadott színre! Lásd: [CSS colors az RGB résznél](http://www.w3schools.com/cssref/css_colors_legal.asp)
-   * Legyen a kép háttere világoskék! (a talajhoz hasonlóan egy téglalapot lehet rajzolni, kék színnel (0, 0, canvas.width/2, canvas.height/2) koordinátákkal)
-   * Változtasd meg a játéktér méreteit: talaj vastagsága (10->50 pixel), játékos mérete, játékos sebessége, stb...
-     * Hány helyen kell átírnod a programot ahhoz, hogy a talaj vastagabb legyen? El lehetne-e érni valahogy, hogy csak egy helyen kelljen átírni ehhez?
-     * Olvasnivaló: [Don't repeat yourself](http://en.wikipedia.org/wiki/Don%27t_repeat_yourself)
+   * Állítsd át a téglalap színét sárgára! (yellow)
+   * Állítsd át a téglalap színét Red Green Blue komponensekkel megadott színre! Lásd: [CSS colors az RGB résznél](http://www.w3schools.com/cssref/css_colors_legal.asp)
+   * Rajzolj egy "talaj"-t a képre. Ez legyen a kép alján egy jobbra, balra lefelé a kép széléig érő, felfelé 10 pixel magas téglalap egy általad választott színnel!
+   * Legyen a kép háttere világoskék! (a futó téglalaphoz hasonlóan egy téglalapot lehet rajzolni, kék színnel (0, 0, canvas.width/2, canvas.height/2) koordinátákkal)
    * Olvasd el az eredeti tutorialt, ami alapján ez az óravázlat készült: [Hasonló program útmutatóval, ami alapján dolgoztam](http://www.somethinghitme.com/2013/01/09/creating-a-canvas-platformer-tutorial-part-one/)
+     * Próbáld meg létrehozni a játékos objektumot (a rajza legyen egy pici négyzet), ahogy le van írva a tutorialban, és vedd fel azt a logikát, ami jobbra-balra mozgatja a nyilak hatására. Úgy vedd fel a játékost, hogy a talaj szintjén legyen.
+   * Próbáld meg (netes keresés segítségével) a játékost jelző négyzet helyett egy kis kép kirajzolását! Használd [ezt a képet](player.png)! Ha nem sikerült netes kereséssel megtalálni a kép kirajzolást, akkor [ezt a példakódot](keprajz.html) használhatod. Az oldal forrását jobbklikk az oldalon - "view page source" menűponttal tudod megnézni.
    * Rajzold át úgy a játékos képét (player.png), hogy átlátszó legyen a háttere, ne fehér! Ehhez egy rajzolóprogramot kell használnod. Például: [GIMP](http://www.gimp.org/)
      * Hogyan csináld? Keresőszó tipp: "gimp transparent background"
      * Egy működő találat: [Youtube videó arról, hogy hogyan lehet egy kép hátterét átlátszóvá tenni](https://www.youtube.com/watch?v=AC5vdKuwTp0)
