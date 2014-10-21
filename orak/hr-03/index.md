@@ -3,11 +3,9 @@ layout: default
 ---
 #Interakciók kezelése
 
- - [2014/2015 informatika szakkör][szakkor_honlap] második órája
- - [Saját bevezetőm][bevezeto]
+ - [2014/2015 informatika szakkör][szakkor_honlap] harmadik órája
 
 [szakkor_honlap]: http://rizsi.github.io/szakkor2014/index.html
-
 
 ##Hol hagytuk abba
 
@@ -20,6 +18,7 @@ layout: default
  - szöveg kirajzolása
  - véletlen szám generálása és felhasználása
  - okosabb progamozás: "objektumok" használata
+ - guggolás programozása
 
 ---------------------------
 
@@ -53,7 +52,12 @@ layout: default
 ###Szöveg kirajzolás
 
  - A használható parancs: `context.fillText("szoveg",x,y);`
- - A szöveg tárolása változóban ugyanúgy mint egy számot
+ - A szöveg tárolása változóban ugyanúgy mint a számoknál
+
+###Guggolás leprogramozása
+
+ - Guggoló helyzetű kép kirajzolása a le billentyűzet nyomva tartása alatt
+  - Felhasználható kép: [link](http://rizsi.github.io/szakkor2014/orak/hr-03/guggol.png)
 
 ###Óra végi extra, ha jut idő
 
@@ -61,14 +65,20 @@ layout: default
    - eltárolod a helyzetedet az előző képkockában
    - mozogsz
    - az eddigi távhoz hozzáadod a mostani és az előző helyzeted távolságát --> Pitagorasz tétel
- - Guggoló helyzet a le billentyűzetre
-  - Felhasználható kép: [link](http://rizsi.github.io/szakkor2014/orak/hr-03/guggol.png)
- 
+
+-------------------------------
+
+###Az órai munka eredménye:
+[link a "játékra"](http://rizsi.github.io/szakkor2014/orak/hr-03/game.html)
+
+<canvas id="mycanvas" width='600' height ='300'></canvas>
+<script src="script.js"></script>
+
 -------------------------------
 
 ##Házi feladat
 
- - házi...
+ - Beépíteni a játékodba egy véletlen szám által vezérelt dolgot. *Fantázia!*
   
   
   
