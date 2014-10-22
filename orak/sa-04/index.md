@@ -7,6 +7,9 @@ layout: default
 
 [szakkor_honlap]: http://rizsi.github.io/szakkor2014/index.html
 
+[kiindulási állapot: előző óra vége](game-00.html)
+
+
 ## Egyszerűsítés
 Általában a lehető legegyszerűbb megoldásra törekszünk.
 
@@ -18,8 +21,6 @@ Egy dolgot egy helyen írjunk le:
 Általában a rövidebb az egyszerűbb:
  * Érthetőség
  * Módosíthatóság
-
-
 
 ## Fájlok elérése
 
@@ -43,4 +44,29 @@ Megoldás:
   * Ha felteszed egy Internetes szolgáltatóhoz a programot, akkor oda is fel kell másolni a képeket is.
  * Így a harmadik féltől függetlenné válik az alkalmazásod: "nem törik el" amikor az eredeti képet leszedi valaki
 
-##
+## Objektumok
+
+Táblánál magyarázva, az alábbi vázlat szerint:
+
+ * A program futása:
+  * A program futása állapotátmenetek sorozata
+  * program utasítás végrehajtása: állapot1 -> állapot2
+  * debuggerrel megállítva a program teljes állapotát láthatjuk:
+    * objektumok
+    * futási állapot:
+      * melyik metódus hol tart éppen
+      * helyi változók
+ * Debuggerrel nézzük meg, hogy hogyan épülnek fel a program objektumai!
+   * kulcs->érték hozzárendelés
+   * a kulcs csak egyszerű típus lehet: string, szám
+   * érték lehet:
+     * egyszerű típus: string, szám
+     * másik objektum
+     * metódus
+   * 
+ * írjuk át a player-t objektummá
+   * a playeren végzett műveleteket tegyük át metódusokba: animate, draw
+   * ugyanezt tegyük meg a felirattal és a felhővel is
+   * az animate metódust írjuk át úgy, hogy a game objektumain fusson végig
+
+   

@@ -4,9 +4,6 @@
 <br/>
 Ez az első HTML+JS programunk.
 <script>
-const KEY_LEFT=37;
-const KEY_RIGHT=39;
-const KEY_DOWN=40;
 function loadImage(src)
 {
 	var image = new Image();
@@ -15,10 +12,22 @@ function loadImage(src)
 }
 
 function keyup(e){
-	keys[e.keyCode]=false;
+	if(e.keyCode == 37){
+		leftkeydown = false;
+	} else if(e.keyCode == 39){
+		rightkeydown = false;
+	} else if(e.keyCode == 40){
+		downkeydown = false;
+	}
 }
 function keydown(e){
-	keys[e.keyCode]=true;
+	if(e.keyCode == 37){
+		leftkeydown = true;
+	} else if(e.keyCode == 39){
+		rightkeydown = true;
+	} else if(e.keyCode == 40){
+		downkeydown = true;
+	}
 }
 
 function initialize ()
@@ -26,7 +35,7 @@ function initialize ()
 	canvas = document.getElementById('mycanvas');
 	context = canvas.getContext('2d');
 
-	background = loadImage("background.png");
+	background = loadImage("http://rizsi.github.io/szakkor2014/orak/hr-02/background.png");
 
 	cloud = {
 		x: 310,
@@ -45,12 +54,15 @@ function initialize ()
 		y: 20,
 		text: "Szig szakkör jétáka!",
 	};
-	keys={};
 	
-	background = loadImage("background.png");
-	player.img = loadImage("stickman.png");
-	player.crouch = loadImage("guggol.png");
-	cloud.img = loadImage("mistic_cloud.png");
+	rightkeydown = false;
+	leftkeydown = false;
+	downkeydown = false;
+	
+	background = loadImage("http://rizsi.github.io/szakkor2014/orak/hr-02/background.png");
+	player.img = loadImage("http://rizsi.github.io/szakkor2014/orak/hr-02/stickman.png");
+	player.crouch = loadImage("http://rizsi.github.io/szakkor2014/orak/hr-03/guggol.png");
+	cloud.img = loadImage("http://rizsi.github.io/szakkor2014/orak/hr-02/mistic_cloud.png");
 	
 	document.body.addEventListener("keydown", keydown);
 	document.body.addEventListener("keyup", keyup);
@@ -63,22 +75,24 @@ function animate()
 	context.fillText(cim.text, cim.x, cim.y);
 	context.drawImage(cloud.img, cloud.x, cloud.y);
 	
-	if(keys[KEY_RIGHT]){
-		player.velocity_x+=2;
-	}
-	if(keys[KEY_LEFT]){
-		player.velocity_x-=2;
-	}
-	if(player.velocity_x > 0){
-		player.velocity_x--;
-	}else if(player.velocity_x < 0){
+	if(rightkeydown){
 		player.velocity_x++;
+	}
+	if(leftkeydown){
+		player.velocity_x--;
+	}
+	if(!rightkeydown && !leftkeydown){
+		if(player.velocity_x > 0){
+			player.velocity_x--;
+		}else if(player.velocity_x < 0){
+			player.velocity_x++;
+		}
 	}
 	
 	player.x += player.velocity_x;
 
 
-	if(keys[KEY_DOWN]){
+	if(downkeydown){
 		context.drawImage(player.crouch, player.x, player.y);
 	}else{
 		context.drawImage(player.img, player.x, player.y);

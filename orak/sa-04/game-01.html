@@ -7,7 +7,6 @@ Ez az első HTML+JS programunk.
 const KEY_LEFT=37;
 const KEY_RIGHT=39;
 const KEY_DOWN=40;
-const KEY_UP=38;
 function loadImage(src)
 {
 	var image = new Image();
@@ -28,98 +27,30 @@ function initialize ()
 	context = canvas.getContext('2d');
 
 	background = loadImage("background.png");
-	game = {
-		width: canvas.width,
-		height: canvas.height,
-		baseY:240,
-		objects: [],
-	};
+
 	cloud = {
-		game: game,
 		x: 310,
 		y: 90,
-		img:loadImage("mistic_cloud.png"),
-		animate: function()
-		{
-//			this.x--;
-		},
-		draw: function(ctx)
-		{
-			context.drawImage(this.img, this.x, this.y);
-		},
 	};
 
 	player = {
-		game: game,
 		x: 30,
-		y: 0,
+		y: 240-64,
 		velocity_x: 0,
 		velocity_y: 0,
-		animate: function()
-		{
-			if(keys[KEY_RIGHT]){
-				this.velocity_x+=2;
-			}
-			if(keys[KEY_LEFT]){
-				this.velocity_x-=2;
-			}
-			if(this.velocity_x > 0){
-				this.velocity_x--;
-			}else if(this.velocity_x < 0){
-				this.velocity_x++;
-			}
-			if(keys[KEY_UP]&&this.y==0)
-			{
-				this.velocity_y=10;
-			}
-			this.velocity_y-=1;
-			this.y += this.velocity_y;
-			if(this.y<=0)
-			{
-				this.y=0;
-				this.velocity_y=0;
-			}
-			this.x += this.velocity_x;
-		},
-		draw: function(ctx)
-		{
-			var img=this.img;
-			if(keys[KEY_DOWN]){
-				img=this.crouch;
-			}
-			context.drawImage(img, this.x, this.game.baseY-player.y-64-this.y);
-		},
-		img: loadImage("stickman.png"),
-		crouch: loadImage("guggol.png"),
-	};
-  background={
-		background: loadImage("background.png"),
-		draw: function(ctx)
-		{
-			ctx.drawImage(this.background, 0, 0);
-		},
-		animate: function()
-		{
-		},
 	};
 
 	cim = {
 		x: 600/2-40,
 		y: 20,
 		text: "Szig szakkör jétáka!",
-		draw: function(ctx)
-		{
-			ctx.fillText(this.text, this.x, this.y);
-		},
-		animate: function()
-		{
-		},
 	};
-	game.objects.push(background);
-	game.objects.push(cim);
-	game.objects.push(cloud);
-	game.objects.push(player);
 	keys={};
+	
+	background = loadImage("background.png");
+	player.img = loadImage("stickman.png");
+	player.crouch = loadImage("guggol.png");
+	cloud.img = loadImage("mistic_cloud.png");
 	
 	document.body.addEventListener("keydown", keydown);
 	document.body.addEventListener("keyup", keyup);
@@ -128,16 +59,32 @@ function initialize ()
 function animate()
 {
 	context.clearRect(0,0,canvas.width, canvas.height);
-	for(var i=0; i<game.objects.length; ++i)
-	{
-		var object=game.objects[i];
-		object.animate();
+	context.drawImage(background, 0, 0);
+	context.fillText(cim.text, cim.x, cim.y);
+	context.drawImage(cloud.img, cloud.x, cloud.y);
+	
+	if(keys[KEY_RIGHT]){
+		player.velocity_x+=2;
 	}
-	for(var i=0; i<game.objects.length; ++i)
-	{
-		var object=game.objects[i];
-		object.draw(context);
+	if(keys[KEY_LEFT]){
+		player.velocity_x-=2;
 	}
+	if(player.velocity_x > 0){
+		player.velocity_x--;
+	}else if(player.velocity_x < 0){
+		player.velocity_x++;
+	}
+	
+	player.x += player.velocity_x;
+
+
+	if(keys[KEY_DOWN]){
+		context.drawImage(player.crouch, player.x, player.y);
+	}else{
+		context.drawImage(player.img, player.x, player.y);
+	}
+
+	
 	window.requestAnimationFrame(animate);
 }
 
