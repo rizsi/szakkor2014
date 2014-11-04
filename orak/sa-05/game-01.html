@@ -1,0 +1,92 @@
+
+<meta charset="UTF-8">
+<canvas id="mycanvas" width='600' height ='300'></canvas>
+<br/>
+Ez az első HTML+JS programunk.
+<script>
+function loadImage(src)
+{
+	var image = new Image();
+	image.src = "../../game/pictures/"+src;
+	return image;
+}
+
+function keyup(e){
+	keys[e.keyCode]=false;
+}
+function keydown(e){
+	keys[e.keyCode]=true;
+}
+
+function initialize ()
+{
+	canvas = document.getElementById('mycanvas');
+	context = canvas["getContext"]('2d');
+	cloud = {
+		x: 310,
+		y: 90,
+	};
+	keys={};
+
+	player = {
+		x: 30,
+		y: 240-64,
+		velocity_x: 0,
+		velocity_y: 0,
+	};
+
+	cim = {
+		x: 600/2-40,
+		y: 20,
+		text: "Szig szakkör jétáka!",
+	};
+	
+	background = loadImage("background.png");
+	player.img = loadImage("stickman.png");
+	player.crouch = loadImage("crouch.png");
+	cloud.img = loadImage("mistic_cloud.png");
+	
+	document.body.addEventListener("keydown", keydown);
+	document.body.addEventListener("keyup", keyup);
+}
+
+function animate()
+{
+	context.clearRect(0,0,canvas.width, canvas.height);
+	context.drawImage(background, 0, 0);
+	context.fillText(cim.text, cim.x, cim.y);
+	context.drawImage(cloud.img, cloud.x, cloud.y);
+	
+	if(keys[39]){
+		player.velocity_x+=2;
+	}
+	if(keys[37]){
+		player.velocity_x-=2;
+	}
+	if(player.velocity_x > 0){
+		player.velocity_x--;
+	}else if(player.velocity_x < 0){
+		player.velocity_x++;
+	}
+	
+	player.x += player.velocity_x;
+
+
+	if(keys[40]){
+		context.drawImage(player.crouch, player.x, player.y);
+	}else{
+		context.drawImage(player.img, player.x, player.y);
+	}
+
+	
+	window.requestAnimationFrame(animate);
+}
+
+window.addEventListener("load", function()
+{
+	initialize();
+	animate();
+});
+</script>
+
+

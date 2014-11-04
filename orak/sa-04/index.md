@@ -8,6 +8,7 @@ layout: default
 [szakkor_honlap]: http://rizsi.github.io/szakkor2014/index.html
 
 [kiindulási állapot: előző óra vége](game-00.html)
+
 [befejező állapot: nem sikerült a végére írni a tervezettnek](game-final.html)
 
 
