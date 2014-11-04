@@ -8,6 +8,7 @@ layout: default
 [szakkor_honlap]: http://rizsi.github.io/szakkor2014/index.html
 
 [kiindulási állapot: előző óra vége](game-00.html)
+[befejező állapot: nem sikerült a végére írni a tervezettnek](game-final.html)
 
 
 ## Egyszerűsítés
@@ -69,4 +70,11 @@ Táblánál magyarázva, az alábbi vázlat szerint:
    * ugyanezt tegyük meg a felirattal és a felhővel is
    * az animate metódust írjuk át úgy, hogy a game objektumain fusson végig
 
+## Házi feladat
+
+Nem jutottunk el a player objektummá alakításáig, ami a terv volt. A házi feladat:
+ * Írd át a programot úgy, hogy JavaScript ekvivalens átalakításokkal úgyanazt csinálja, mint az eredeti, de máshogy nézzen ki a forráskód!
+ * Próbáld meg a játékos objektum tagváltozóiba tenni a hozzá tartozó metódusokat!
+ * Az első órához írt (távlati) házi feladatokkal próbálj meg haladni! [Itt találod meg](../sa-01/index.html)
+ 
    
