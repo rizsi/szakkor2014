@@ -9,6 +9,8 @@ layout: default
  
 [kiindulási állapot: előző óra vége](game-00.html)
 
+[eddig jutottunk](game-final.html)
+
 # Elérési utak problematikája újra:
 
  * Relatív útvonalakat használva egyben másolva működni fog a program file:// url-ről betöltve Internet elérés nélkül is.
@@ -45,4 +47,7 @@ Megoldás: [képek elérési útvonala relatív, de nem csinálunk több másola
 
  * Várhatóan a következő órára marad, de ha nem akkor erről lesz szó :-)
  
- 
+# Házi feladat
+
+ * ugrás paraméterezése tetszetősre
+ * extra funkciók: double jump, lenyomás idejétől függő jump
