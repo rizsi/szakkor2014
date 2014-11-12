@@ -1,0 +1,107 @@
+
+<meta charset="UTF-8">
+<canvas id="mycanvas" width='600' height ='300'></canvas>
+<br/>
+Ez az első HTML+JS programunk.
+<script>
+function loadImage(src)
+{
+	var image = new Image();
+	image.src = "../../game/pictures/"+src;
+	return image;
+}
+keyup = function(e){
+	keys[e.keyCode]=false;
+};
+
+function keydown(e){
+	keys[e.keyCode]=true;
+	console.info(e.keyCode);
+}
+
+function initialize ()
+{
+	canvas = document.getElementById('mycanvas');
+	context = canvas["getContext"]('2d');
+	cloud = {
+		x: 310,
+		y: 90,
+	};
+	keys={};
+
+	player = {
+		x: 30,
+		y: 0,
+		velocity_x: 0,
+		velocity_y: 0,
+	};
+
+	cim = {
+		x: 600/2-40,
+		y: 20,
+		text: "Szig szakkör jétáka!",
+	};
+	
+	background = loadImage("background.png");
+	player.img = loadImage("stickman.png");
+	player.crouch = loadImage("crouch.png");
+	cloud.img = loadImage("mistic_cloud.png");
+	
+	document.body.addEventListener("keydown", keydown);
+	document.body.addEventListener("keyup", keyup);
+}
+
+function animate()
+{
+	context.clearRect(0,0,canvas.width, canvas.height);
+	context.drawImage(background, 0, 0);
+	context.fillText(cim.text, cim.x, cim.y);
+	context.drawImage(cloud.img, cloud.x, cloud.y);
+	
+	if(keys[39]){
+		player.velocity_x+=2;
+	}
+	if(keys[37]){
+		player.velocity_x-=2;
+	}
+	if(keys[38]&&player.y==0)
+	{
+	  player.velocity_y=10;
+	}
+	if(player.y<0)
+	{
+	  player.y=0; player.velocity_y=0;
+	}
+	if(player.y>0)
+	{
+	  player.velocity_y-=1; // g*dT hasrautes
+	}
+	if(player.velocity_x > 0){
+		player.velocity_x--;
+	}else if(player.velocity_x < 0){
+		player.velocity_x++;
+	}
+	
+	player.x += player.velocity_x;
+	player.y += player.velocity_y;
+
+	var img;
+	if(keys[40]){
+		img=player.crouch;
+	}else{
+		img=player.img;
+	}
+	context.drawImage(img, player.x, 176-player.y);
+
+	
+	window.requestAnimationFrame(animate);
+}
+
+window.addEventListener("load", function()
+{
+	initialize();
+	animate();
+});
+</script>
+
+
