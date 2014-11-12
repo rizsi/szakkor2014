@@ -4,11 +4,10 @@ layout: default
 # Objektumok - folytatás + tömbök
 
  - [2014/2015 informatika szakkör][szakkor_honlap] hatodik órája
- 
+ - [kiindulási állapot: előző óra vége](game-02.html)
+ - [óra végi eredmény:](game-00.html)
  [szakkor_honlap]: http://rizsi.github.io/szakkor2014/index.html
  
-[kiindulási állapot: előző óra vége](game-02.html)
-[óra végi eredmény:](game-00.html)
 
 --------
 
@@ -97,8 +96,6 @@ layout: default
 -->
  -  Folyt köv...
 
-# Var szócska magyarázata?
-
 ----------
 
 # Gyakorlati rész:
@@ -129,45 +126,45 @@ layout: default
  - A felhők eltűntetése és megjelenítése egy szinusz függvény alapján.
  - Felvázolom a működést és elég részletet, hogy magadtól el tudd készíteni.
  - Javítások:
-  - A talajszint 176 pixel
-  - Hasznos lenne hosszútávon, hogy az összes random generálást a cloudObject függvénybe tesszük és nem paraméterként adjuk át.
-  - Az amplitúdónak értelmezzük inkább azt, hogy a szinusz függvény alapvetően 1 amplitúdóval rendelkezik. Tehát -1 és +1 között mozog. Ilyenkor a teljes tartomány ugye 2 amit én az órán amplitúdóként mondtam. Ezt kijavítanám, mert az általánosan bevett szokás nem ez... (Az eddigi értelmezésünket gyakorlatilag megfelezzük...)
+   - A talajszint 176 pixel
+   - Hasznos lenne hosszútávon, hogy az összes random generálást a cloudObject függvénybe tesszük és nem paraméterként adjuk át.
+   - Az amplitúdónak értelmezzük inkább azt, hogy a szinusz függvény alapvetően 1 amplitúdóval rendelkezik. Tehát -1 és +1 között mozog. Ilyenkor a teljes tartomány ugye 2 amit én az órán amplitúdóként mondtam. Ezt kijavítanám, mert az általánosan bevett szokás nem ez... (Az eddigi értelmezésünket gyakorlatilag megfelezzük...)
  - A Draw metódust kiegészítjük átlátszóság kezelésével:
-
-    this.draw = function(context){
-    	context.globalAlpha = this.alpha;
-    	context.drawImage(this.img, this.x, this.y);
-    	context.globalAlpha = 1;
-    }
+ 
+    this.draw = function(context){</br>
+    	context.globalAlpha = this.alpha;</br>
+    	context.drawImage(this.img, this.x, this.y);</br>
+    	context.globalAlpha = 1;</br>
+    }</br>
 
  - Létrehozzuk a szükséges új változókat:
-  - alpha - Átlátszóság: 0 az átlátszó, 1 a teljesen látható
-  - angle - Szög: 0 és 2*PI között mozog, de ha véletlen nagyobb akkor sem gond, folytatja a periodicitást a szinusz... (csak ugye a végtelent nem kezeli "rendesen" a számítógép)Ezt adjuk meg a szinusz függvénynek, hisz az idővel vagy egy számlálóval nehéz lenne számolni, azt értelmezni.
-  - phase - Fázis: 0 és 2*PI közötti értéket vehet vel. Ez azt adja meg, hogy amikor elkezdődik az animáció milyen szögből induljon. Íg nem mindegyik egyszerre kezd el eltűnni és megjelenni.
-  - amplitude - Amplitúdó: 0.5 és 0 közötti értéket vesz fel. Azt határozza meg milyen mértékben változik meg az átlátszóság az átlaghoz képest pluszba *(fel)*, illetve mínuszba *(le)*. Ha 0.5 akkor egyszer teljesen eltűnik, egyszer teljesen megjelenik. Ha ennél kisebb akkor kevésbé lesz nagy a változás...
-  - average - Átlag: Ha az amplitúdó 0 akkor 0 és 1 közötti értéket vesz fel, ha az amplitúdó 0.5 akkor csak 0.5 lehet *(középen lesz az átlag, félig átlátszón)*. A többi értéken és a logikáján tessék gondolkodni :) Az az érték ami körül változik az átlátszóság. (amplitúdónyival minuszba *(lejjebb)* és pluszba *(feljebb)* a szinusz tulajdonságai miatt)
+   - alpha - Átlátszóság: 0 az átlátszó, 1 a teljesen látható
+   - angle - Szög: 0 és 2*PI között mozog, de ha véletlen nagyobb akkor sem gond, folytatja a periodicitást a szinusz... (csak ugye a végtelent nem kezeli "rendesen" a számítógép)Ezt adjuk meg a szinusz függvénynek, hisz az idővel vagy egy számlálóval nehéz lenne számolni, azt értelmezni.
+   - phase - Fázis: 0 és 2*PI közötti értéket vehet vel. Ez azt adja meg, hogy amikor elkezdődik az animáció milyen szögből induljon. Íg nem mindegyik egyszerre kezd el eltűnni és megjelenni.
+   - amplitude - Amplitúdó: 0.5 és 0 közötti értéket vesz fel. Azt határozza meg milyen mértékben változik meg az átlátszóság az átlaghoz képest pluszba *(fel)*, illetve mínuszba *(le)*. Ha 0.5 akkor egyszer teljesen eltűnik, egyszer teljesen megjelenik. Ha ennél kisebb akkor kevésbé lesz nagy a változás...
+   - average - Átlag: Ha az amplitúdó 0 akkor 0 és 1 közötti értéket vesz fel, ha az amplitúdó 0.5 akkor csak 0.5 lehet *(középen lesz az átlag, félig átlátszón)*. A többi értéken és a logikáján tessék gondolkodni :) Az az érték ami körül változik az átlátszóság. (amplitúdónyival minuszba *(lejjebb)* és pluszba *(feljebb)* a szinusz tulajdonságai miatt)
  - Kiszámoljuk, hogy ha 10 másodperc alatt akarunk egy teljes *periódust* lejátszani a szinusz fügvényünkkel, akkor a másoderc 60.-ad része alatt mennyit kell hozzáadni a szög-höz:
-  - A teljes periódusa a *szög* változónak:
-   - 2 * *Math.PI*
-  - Egy másodperc alatt lefutó függvények száma:
-   - 60
-  - Egy másodperc alatt 1 periódus tehát:
-   - angle += 2*PI/60
-  - Ezt egyszerűsítve és emberibbé tenni a periódusidőt:
-   - angle += PI/30/10
-   - Itt megjegyezném, hogy ezek szerint a 10-et elnevezhetnénk periódusidőnek :)
-  - Végül, ha egy periódusnál többnél járunk akkor levonunk belőle egy periódust, hogy ne próbáljon meg végtelenig számolni (úgy sem menne neki :)
-   - Ehhez egy **if** fog kelleni...
- - Végül állítsuk össze a függvényünket:
-  - alpha = average + amplitude * sin( angle + phase )
-  - Direkt nem egyből átmásolható Javascriptbe, logikai hiba nincs benne csak formai
+   - A teljes periódusa a *szög* változónak:
+     - 2 * *Math.PI*
+   - Egy másodperc alatt lefutó függvények száma:
+     - 60
+   - Egy másodperc alatt 1 periódus tehát:
+     - angle += 2*PI/60
+   - Ezt egyszerűsítve és emberibbé tenni a periódusidőt:
+     - angle += PI/30/10
+     - Itt megjegyezném, hogy ezek szerint a 10-et elnevezhetnénk periódusidőnek :)
+   - Végül, ha egy periódusnál többnél járunk akkor levonunk belőle egy periódust, hogy ne próbáljon meg végtelenig számolni (úgy sem menne neki :)
+     - Ehhez egy **if** fog kelleni...
+  - Végül állítsuk össze a függvényünket:
+    - alpha = average + amplitude * sin( angle + phase )
+    - Direkt nem egyből átmásolható Javascriptbe, logikai hiba nincs benne csak formai
 
 ### Szorgalmi feladat:
 
  - A felhők jelenjenek meg és tűnjenek el random:
-  - A szinusz függvény kezdőfázisa (fázisa) 3PI/2 legyen, így a teljesen átlátszótól indul.
-  - Csak egy periódust csináljon(az angle 0-tól 2*PI-ig megy, utána megáll). Így teljesen átlátszó állapotban álljon meg.
-  - Az átlag egyenlő legyen az amplitúdóval. Így garantált, hogy teljesen átlátszó lesz az elején, végén.
-  - Ha elérte az átlátszó állapotot akkor generálja újra a koordinátáit sebességét, amplitúját-átlagát, *(periódusidejét)*
+   - A szinusz függvény kezdőfázisa (fázisa) 3*PI/2 legyen, így a teljesen átlátszótól indul.
+   - Csak egy periódust csináljon (az angle 0-tól 2*PI-ig megy, utána megáll). Így teljesen átlátszó állapotban álljon meg.
+   - Az átlag egyenlő legyen az amplitúdóval. Így garantált, hogy teljesen átlátszó lesz az elején, végén.
+   - Ha elérte az átlátszó állapotot akkor generálja újra a koordinátáit sebességét, amplitúját-átlagát, *(periódusidejét)*
  - Eredmény: [link](game-01.html)
 
