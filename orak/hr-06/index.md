@@ -6,8 +6,8 @@ layout: default
  - [2014/2015 informatika szakkör][szakkor_honlap] hatodik órája
  - [kiindulási állapot: előző óra vége](game-02.html)
  - [óra végi eredmény:](game-00.html)
- [szakkor_honlap]: http://rizsi.github.io/szakkor2014/index.html
- 
+
+[szakkor_honlap]: http://rizsi.github.io/szakkor2014/index.html 
 
 --------
 
@@ -132,10 +132,10 @@ layout: default
  - A Draw metódust kiegészítjük átlátszóság kezelésével:
 
     this.draw = function(context){<br>
-    	context.globalAlpha = this.alpha;<br>
-    	context.drawImage(this.img, this.x, this.y);<br>
-    	context.globalAlpha = 1;<br>
-    }</br>
+    &nbsp;&nbsp;&nbsp;&nbsp;	context.globalAlpha = this.alpha;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;	context.drawImage(this.img, this.x, this.y);<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;	context.globalAlpha = 1;<br>
+    }
 
  - Létrehozzuk a szükséges új változókat:
    - **alpha - Átlátszóság:** 0 az átlátszó, 1 a teljesen látható
@@ -165,6 +165,7 @@ layout: default
    - A szinusz függvény kezdőfázisa (fázisa) 3*PI/2 legyen, így a teljesen átlátszótól indul.
    - Csak egy periódust csináljon (az angle 0-tól 2*PI-ig megy, utána megáll). Így teljesen átlátszó állapotban álljon meg.
    - Az átlag egyenlő legyen az amplitúdóval. Így garantált, hogy teljesen átlátszó lesz az elején, végén.
-   - Ha elérte az átlátszó állapotot akkor generálja újra a koordinátáit sebességét, amplitúját-átlagát, *(periódusidejét)*
+   - Ha elérte az átlátszó állapotot akkor generálja újra a koordinátáit sebességét, amplitúját-átlagát, *(periódusidejét: olyan 7 és 14 szekundum közöttit érdemes szerintem betenni)*
+   - A legelső értékadásnál érdemes lehet az angle értékét random választani 0 és 2*PI között, mivel mi a fázist most máshogy értelmezzük ugye egy picit és így tudjuk kompenzálni azt könnyen, hogy ne mindegyik egyszerre kezdjen el megjelenni és eltűnni :)
  - Eredmény: [link](game-01.html)
 
