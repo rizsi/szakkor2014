@@ -4,12 +4,18 @@
 <br/>
 Ez az első HTML+JS programunk.
 <script>
-function loadImage(src)
-{
+
+const KEY_LEFT=37;
+const KEY_RIGHT=39;
+const KEY_DOWN=40;
+const KEY_UP=38;
+
+function loadImage(src){
 	var image = new Image();
 	image.src = "../../game/pictures/"+src;
 	return image;
 }
+
 keyup = function(e){
 	keys[e.keyCode]=false;
 };
@@ -19,16 +25,38 @@ function keydown(e){
 	console.info(e.keyCode);
 }
 
+cloudObject = function(x, y, velocity_x){
+	this.x = x;
+	this.y = y;
+	this.velocity_x = velocity_x;
+
+	this.img = loadImage("../../game/pictures/mistic_cloud.png"); //mistic_cloud.png
+
+	this.logic = function(){
+		this.x += this.velocity_x;
+		if(this.x > 600){
+			this.x = -300;
+		}
+	};
+
+	this.draw = function(context){
+		context.drawImage(this.img, this.x, this.y);
+	};
+}
+
 function initialize ()
 {
 	canvas = document.getElementById('mycanvas');
 	context = canvas["getContext"]('2d');
-	cloud = {
-		x: 310,
-		y: 90,
-	};
 	keys={};
-
+	
+	elements = {};
+	felhoszam = 5;
+	
+	for(i=0; i<5 ; i++){
+		elements[i] = new cloudObject(Math.random()*600,Math.random()*(300-30-95), Math.random());
+	}
+	
 	player = {
 		x: 30,
 		y: 0,
@@ -45,7 +73,6 @@ function initialize ()
 	background = loadImage("background.png");
 	player.img = loadImage("stickman.png");
 	player.crouch = loadImage("crouch.png");
-	cloud.img = loadImage("mistic_cloud.png");
 	
 	document.body.addEventListener("keydown", keydown);
 	document.body.addEventListener("keyup", keyup);
@@ -56,15 +83,19 @@ function animate()
 	context.clearRect(0,0,canvas.width, canvas.height);
 	context.drawImage(background, 0, 0);
 	context.fillText(cim.text, cim.x, cim.y);
-	context.drawImage(cloud.img, cloud.x, cloud.y);
 	
-	if(keys[39]){
+	for(i in elements){
+		elements[i].logic();
+		elements[i].draw(context);
+	}
+	
+	if(keys[KEY_RIGHT]){
 		player.velocity_x+=2;
 	}
-	if(keys[37]){
+	if(keys[KEY_LEFT]){
 		player.velocity_x-=2;
 	}
-	if(keys[38]&&player.y==0)
+	if(keys[KEY_UP]&&player.y==0)
 	{
 	  player.velocity_y=10;
 	}
@@ -86,7 +117,7 @@ function animate()
 	player.y += player.velocity_y;
 
 	var img;
-	if(keys[40]){
+	if(keys[KEY_DOWN]){
 		img=player.crouch;
 	}else{
 		img=player.img;
