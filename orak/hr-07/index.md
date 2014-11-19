@@ -34,11 +34,11 @@ layout: default
 
  - Ha van egy *kollekciód* (kb olyan mint a matekban a halmaz) akkor annak az összes elemén végig lehet menni ezzel a módszerrel:
 	
-	kollekcio = {1, 2, 3, 4};
+	kollekcio = {1, 2, 3, 4}; 
 
-	for(i in kollekcio){
-		elem[i] += 1; //Nagyon fontos dolog amit minden egyes elemmel csinálni akarok...
-	}
+	for(i in kollekcio){ 
+		elem[i] += 1; //Nagyon fontos dolog amit minden egyes elemmel csinálni akarok... 
+	} 
 
   - Utána az *elem* képviseli az aktuális listaelemet
 
@@ -56,16 +56,16 @@ layout: default
   - A new operátorral tudunk létrehozni egy új példányt belőle.
   - Példakód:
 
-    function people(name){
-    &nbsp;&nbsp;&nbsp;&nbsp;  this.name = name;
-    &nbsp;&nbsp;&nbsp;&nbsp;  this.sayHi = function(){
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  console.log("Hi, my name is " + this.name);
-    &nbsp;&nbsp;&nbsp;&nbsp;}
-    }
+    function people(name){ 
+    &nbsp;&nbsp;&nbsp;&nbsp;  this.name = name; 
+    &nbsp;&nbsp;&nbsp;&nbsp;  this.sayHi = function(){ 
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  console.log("Hi, my name is " + this.name); 
+    &nbsp;&nbsp;&nbsp;&nbsp;} 
+    } 
 
-    var rudolf = new people("Rudolf");
-
-    rudolf.sayHi();
+    var rudolf = new people("Rudolf"); 
+ 
+    rudolf.sayHi(); 
 
 ### Tömbök:
 
