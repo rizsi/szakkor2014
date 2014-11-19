@@ -56,16 +56,17 @@ layout: default
   - A new operátorral tudunk létrehozni egy új példányt belőle.
   - Példakód:
 
-    function people(name){ 
-    &nbsp;&nbsp;&nbsp;&nbsp;  this.name = name; 
-    &nbsp;&nbsp;&nbsp;&nbsp;  this.sayHi = function(){ 
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  console.log("Hi, my name is " + this.name); 
-    &nbsp;&nbsp;&nbsp;&nbsp;} 
-    } 
 
-    var rudolf = new people("Rudolf"); 
+        function people(name){ 
+            this.name = name; 
+            this.sayHi = function(){ 
+                console.log("Hi, my name is " + this.name); 
+            } 
+        } 
+
+        var rudolf = new people("Rudolf"); 
  
-    rudolf.sayHi(); 
+        rudolf.sayHi(); 
 
 ### Tömbök:
 
@@ -75,34 +76,35 @@ layout: default
     - Az igazából egy objektum, ami "üres".
     - Egy objektumot is lehet tömbként kezelni, mivel a Javascript-ben az objektum egyfajta "kollekciója" tulajdonságoknak. A tulajdonságoknak van nevük és értékük. Példa:
 
-    szam:1,
-    &nbsp;&nbsp;&nbsp;&nbsp;  betu: 'a',
-    &nbsp;&nbsp;&nbsp;&nbsp;  fgv: function(){
-    &nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;&nbsp;  console.log("függvény");
-    &nbsp;&nbsp;&nbsp;&nbsp;  }
-    };
-    var tomb2 = { 0: 2, 1: 3, 2: 5, 3: 7};
-    console.log(tomb2[0]);      //A konzolra ír: 2
-    console.log(tomb1[0]);      //A konzolra ír: undefined
-    console.log(tomb1["szam"]); //A konzolra ír: 1
-    console.log(tomb1["fgv"]);  //A konzolra ír: function (){ console.log("függvény"); }
+        tomb1 = { 
+            szam:1, 
+            betu: 'a', 
+            fgv: function(){ 
+                console.log("függvény"); 
+            } 
+        }; 
+        var tomb2 = { 0: 2, 1: 3, 2: 5, 3: 7}; 
+        console.log(tomb2[0]);      //A konzolra ír: 2 
+        console.log(tomb1[0]);      //A konzolra ír: undefined 
+        console.log(tomb1["szam"]); //A konzolra ír: 1 
+        console.log(tomb1["fgv"]);  //A konzolra ír: function (){ console.log("függvény"); } 
 
   - Ami igazából egy tömb: var tomb = [];
   - Nagy gond nincs, nagyon hasonlóan működik addig  aszintig amit mi tanultunk eddig:
 
-    var tomb = [];
-    tomb[0] = 1;
-    tomb[2] = 3;
+        var tomb = [];
+        tomb[0] = 1;
+        tomb[2] = 3;
 
-    for(i in tomb)
-    &nbsp;&nbsp;&nbsp;&nbsp; console.log(i + " - " + tomb[i]);
+        for(i in tomb)
+            console.log(i + " - " + tomb[i]);
 
-    console.log(tomb[1]);
+        console.log(tomb[1]);
 
-    Ami kiír:
-    &nbsp;&nbsp;&nbsp;&nbsp; 0 - 1
-    &nbsp;&nbsp;&nbsp;&nbsp; 2 - 3
-    &nbsp;&nbsp;&nbsp;&nbsp; undefined
+        Amit kiír:
+            0 - 1
+            2 - 3
+            undefined
 
   - Új elem hozzáadása egy egyszerű értékadás: tomb[1] = 77;
   - Elem törlése: delete tomb[1];
@@ -125,67 +127,67 @@ layout: default
   - További segítség még, hogy minden kollekciónak van egy .length változója ami azt tartalmazza hány elem van benne.
     - Példa:
 
-    var tomb = [1, 3];
+        var tomb = [1, 3];
 
-    console.log("Tárolt elemek száma: " + tomb.length);
-    for(i in tomb)
-    &nbsp;&nbsp;&nbsp;&nbsp; console.log(i + " - " + tomb[i]);
-    console.log("--------");
+        console.log("Tárolt elemek száma: " + tomb.length);
+        for(i in tomb)
+            console.log(i + " - " + tomb[i]);
+        console.log("--------");
     
-    tomb.splice(1, 0, 2); //Beszúrás a kettes index-hez
+        tomb.splice(1, 0, 2); //Beszúrás a kettes index-hez
     
-    console.log("Tárolt elemek száma: " + tomb.length);
-    &nbsp;&nbsp;&nbsp;&nbsp; for(i in tomb)
-    console.log(i + " - " + tomb[i]);
-    console.log("--------");
+        console.log("Tárolt elemek száma: " + tomb.length);
+            for(i in tomb)
+        console.log(i + " - " + tomb[i]);
+        console.log("--------");
     
-    tomb.splice(1, 0, 4); //Beszúrás az egyes index-hez (második elem)
+        tomb.splice(1, 0, 4); //Beszúrás az egyes index-hez (második elem)
     
-    console.log("Tárolt elemek száma: " + tomb.length);
-    for(i in tomb)
-    &nbsp;&nbsp;&nbsp;&nbsp; console.log(i + " - " + tomb[i]);
-    console.log("--------");
+        console.log("Tárolt elemek száma: " + tomb.length);
+        for(i in tomb)
+            console.log(i + " - " + tomb[i]);
+        console.log("--------");
     
-    tomb.splice(1, 1);  //Törlés az egyes index-nél (második elem)
+        tomb.splice(1, 1);  //Törlés az egyes index-nél (második elem)
+        
+        console.log("Tárolt elemek száma: " + tomb.length);
+        for(i in tomb)
+            console.log(i + " - " + tomb[i]);
     
-    console.log("Tárolt elemek száma: " + tomb.length);
-    for(i in tomb)
-    &nbsp;&nbsp;&nbsp;&nbsp; console.log(i + " - " + tomb[i]);
-
-    Amit kiír:
-
-    Tárolt elemek száma: 2
-    0 - 1
-    1 - 3
-    --------
-    Tárolt elemek száma: 3
-    0 - 1
-    1 - 2
-    2 - 3
-    --------
-    Tárolt elemek száma: 4
-    0 - 1
-    1 - 4
-    2 - 2
-    3 - 3
-    --------
-    Tárolt elemek száma: 3
-    0 - 1
-    1 - 2
-    2 - 3 
-
+        Amit kiír:
+    
+        Tárolt elemek száma: 2
+        0 - 1
+        1 - 3
+        --------
+        Tárolt elemek száma: 3
+        0 - 1
+        1 - 2
+        2 - 3    
+        --------    
+        Tárolt elemek száma: 4
+        0 - 1
+        1 - 4
+        2 - 2
+        3 - 3
+        --------
+        Tárolt elemek száma: 3
+        0 - 1
+        1 - 2
+        2 - 3 
+    
 ## Objektumok
 
   - Először jöjjön egy kis kiegészítő az előző órához. Amikor a cloudObject-en belül megírtuk a *draw()* és *logic()* függvényt akkor ez azt jelentette, hogy minden egyes később létrehozott cloud1, cloud2... példány rendelkezik egy saját *draw()* és egy saját *logic()* fügvénnyel. Ez nem praktikus, mivel feleslegesen van meg többször ugyanaz, pocsékoljuk a memóriát...
   - Ehelyett a cloudObject-nek a **prototype**jában hozzuk létre a *draw()* és *logic()* függvényeket, amit minden egyes példány el tud érni és hazsnálni tud. Hogy ez hogyan is néz ki?
 
-    function cloudObject(x, y){
-    &nbsp;&nbsp;&nbsp;&nbsp;  this.x = x;
-    &nbsp;&nbsp;&nbsp;&nbsp;  this.y = y;
-    }
+        function cloudObject(x, y){
+            this.x = x;
+            this.y = y;
+        }
 
-    cloudObject.prototype.draw = function(){ ... };
-    cloudObject.prototype.logic = function(){ ... };
+        cloudObject.prototype.draw = function(){ ... };
+        cloudObject.prototype.logic = function(){ ... };
 
   - Ez nagyszerű! Sokkal jobb kódot írtunk! Bár igaz, hogy kevésbé szebb...
   - Majd később azt is meg fogjuk tudni csinálni, hogy egy objektum rendelkezzen egy másik objektum összes tulajdonságával: változóival és függvényeivel.
