@@ -92,19 +92,19 @@ layout: default
   - Ami igazából egy tömb: var tomb = [];
   - Nagy gond nincs, nagyon hasonlóan működik addig  aszintig amit mi tanultunk eddig:
 
-        var tomb = [];
-        tomb[0] = 1;
-        tomb[2] = 3;
-
-        for(i in tomb)
-            console.log(i + " - " + tomb[i]);
-
-        console.log(tomb[1]);
-
-        Amit kiír:
-            0 - 1
-            2 - 3
-            undefined
+        var tomb = []; 
+        tomb[0] = 1; 
+        tomb[2] = 3; 
+ 
+        for(i in tomb) 
+             console.log(i + " - " + tomb[i]); 
+ 
+        console.log(tomb[1]); 
+ 
+        Amit kiír: 
+            0 - 1 
+            2 - 3 
+            undefined 
 
   - Új elem hozzáadása egy egyszerű értékadás: tomb[1] = 77;
   - Elem törlése: delete tomb[1];
@@ -124,56 +124,56 @@ layout: default
     - Ha be akarunk szúrni elemeketa az elejére:
       - tomb.splice(0, 0, elso, masodik)
       - Ilyenkor 0 elemet töröl és az összes további átadott *argumantumot* (elso, masodik) hozzáfűzi a megadott indextől kezdve.
-  - További segítség még, hogy minden kollekciónak van egy .length változója ami azt tartalmazza hány elem van benne.
-    - Példa:
-
-        var tomb = [1, 3];
-
-        console.log("Tárolt elemek száma: " + tomb.length);
-        for(i in tomb)
-            console.log(i + " - " + tomb[i]);
-        console.log("--------");
+  - További segítség még, hogy minden kollekciónak van egy .length változója ami azt tartalmazza hány elem van benne. 
+    - Példa: 
+ 
+        var tomb = [1, 3]; 
+ 
+        console.log("Tárolt elemek száma: " + tomb.length); 
+        for(i in tomb) 
+            console.log(i + " - " + tomb[i]); 
+        console.log("--------"); 
     
-        tomb.splice(1, 0, 2); //Beszúrás a kettes index-hez
+        tomb.splice(1, 0, 2); //Beszúrás a kettes index-hez 
     
-        console.log("Tárolt elemek száma: " + tomb.length);
-            for(i in tomb)
-        console.log(i + " - " + tomb[i]);
-        console.log("--------");
+        console.log("Tárolt elemek száma: " + tomb.length); 
+            for(i in tomb) 
+        console.log(i + " - " + tomb[i]); 
+        console.log("--------"); 
     
-        tomb.splice(1, 0, 4); //Beszúrás az egyes index-hez (második elem)
+        tomb.splice(1, 0, 4); //Beszúrás az egyes index-hez (második elem) 
     
-        console.log("Tárolt elemek száma: " + tomb.length);
-        for(i in tomb)
-            console.log(i + " - " + tomb[i]);
-        console.log("--------");
+        console.log("Tárolt elemek száma: " + tomb.length); 
+        for(i in tomb) 
+            console.log(i + " - " + tomb[i]); 
+        console.log("--------"); 
     
-        tomb.splice(1, 1);  //Törlés az egyes index-nél (második elem)
+        tomb.splice(1, 1);  //Törlés az egyes index-nél (második elem) 
         
-        console.log("Tárolt elemek száma: " + tomb.length);
-        for(i in tomb)
-            console.log(i + " - " + tomb[i]);
+        console.log("Tárolt elemek száma: " + tomb.length); 
+        for(i in tomb) 
+            console.log(i + " - " + tomb[i]); 
     
-        Amit kiír:
+        Amit kiír: 
     
-        Tárolt elemek száma: 2
-        0 - 1
-        1 - 3
-        --------
-        Tárolt elemek száma: 3
-        0 - 1
-        1 - 2
-        2 - 3    
-        --------    
-        Tárolt elemek száma: 4
-        0 - 1
-        1 - 4
-        2 - 2
-        3 - 3
-        --------
-        Tárolt elemek száma: 3
-        0 - 1
-        1 - 2
+        Tárolt elemek száma: 2 
+        0 - 1 
+        1 - 3 
+        -------- 
+        Tárolt elemek száma: 3 
+        0 - 1 
+        1 - 2 
+        2 - 3     
+        --------     
+        Tárolt elemek száma: 4 
+        0 - 1 
+        1 - 4 
+        2 - 2 
+        3 - 3 
+        -------- 
+        Tárolt elemek száma: 3 
+        0 - 1 
+        1 - 2 
         2 - 3 
     
 ## Objektumok
@@ -181,13 +181,13 @@ layout: default
   - Először jöjjön egy kis kiegészítő az előző órához. Amikor a cloudObject-en belül megírtuk a *draw()* és *logic()* függvényt akkor ez azt jelentette, hogy minden egyes később létrehozott cloud1, cloud2... példány rendelkezik egy saját *draw()* és egy saját *logic()* fügvénnyel. Ez nem praktikus, mivel feleslegesen van meg többször ugyanaz, pocsékoljuk a memóriát...
   - Ehelyett a cloudObject-nek a **prototype**jában hozzuk létre a *draw()* és *logic()* függvényeket, amit minden egyes példány el tud érni és hazsnálni tud. Hogy ez hogyan is néz ki?
 
-        function cloudObject(x, y){
-            this.x = x;
-            this.y = y;
-        }
+        function cloudObject(x, y){ 
+            this.x = x; 
+            this.y = y; 
+        } 
 
-        cloudObject.prototype.draw = function(){ ... };
-        cloudObject.prototype.logic = function(){ ... };
+        cloudObject.prototype.draw = function(){ ... }; 
+        cloudObject.prototype.logic = function(){ ... }; 
 
   - Ez nagyszerű! Sokkal jobb kódot írtunk! Bár igaz, hogy kevésbé szebb...
   - Majd később azt is meg fogjuk tudni csinálni, hogy egy objektum rendelkezzen egy másik objektum összes tulajdonságával: változóival és függvényeivel.
