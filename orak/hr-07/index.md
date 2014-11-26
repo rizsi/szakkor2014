@@ -36,9 +36,9 @@ layout: default
 	
 	kollekcio = {1, 2, 3, 4}; 
 
-	for(i in kollekcio){ 
-		elem[i] += 1; //Nagyon fontos dolog amit minden egyes elemmel csinálni akarok... 
-	} 
+    for(i in kollekcio){ 
+        elem[i] += 1; //Nagyon fontos dolog amit minden egyes elemmel csinálni akarok... 
+    }
 
   - Utána az *elem* képviseli az aktuális listaelemet
 
@@ -75,6 +75,7 @@ layout: default
     - var tomb = {};
     - Az igazából egy objektum, ami "üres".
     - Egy objektumot is lehet tömbként kezelni, mivel a Javascript-ben az objektum egyfajta "kollekciója" tulajdonságoknak. A tulajdonságoknak van nevük és értékük. Példa:
+
 
         tomb1 = { 
             szam:1, 
@@ -123,10 +124,11 @@ layout: default
       - tomb.splice(0, 2);
     - Ha be akarunk szúrni elemeketa az elejére:
       - tomb.splice(0, 0, elso, masodik)
-      - Ilyenkor 0 elemet töröl és az összes további átadott *argumantumot* (elso, masodik) hozzáfűzi a megadott indextől kezdve.
+      - Ilyenkor 0 elemet töröl és az összes további átadott *argumentumot* (elso, masodik) hozzáfűzi a megadott indextől kezdve.
   - További segítség még, hogy minden kollekciónak van egy .length változója ami azt tartalmazza hány elem van benne. 
     - Példa: 
- 
+
+        
         var tomb = [1, 3]; 
  
         console.log("Tárolt elemek száma: " + tomb.length); 
@@ -175,7 +177,8 @@ layout: default
         0 - 1 
         1 - 2 
         2 - 3 
-    
+
+
 ## Objektumok
 
   - Először jöjjön egy kis kiegészítő az előző órához. Amikor a cloudObject-en belül megírtuk a *draw()* és *logic()* függvényt akkor ez azt jelentette, hogy minden egyes később létrehozott cloud1, cloud2... példány rendelkezik egy saját *draw()* és egy saját *logic()* fügvénnyel. Ez nem praktikus, mivel feleslegesen van meg többször ugyanaz, pocsékoljuk a memóriát...
