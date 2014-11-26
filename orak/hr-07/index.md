@@ -4,7 +4,7 @@ layout: default
 # Keretrendszer építése
 
  - [2014/2015 informatika szakkör][szakkor_honlap] hetedik órája
- - [kiindulási állapot: előző óra vége](../hr-06/game-00.html)
+ - [kiindulási állapot: előző óra vége](../hr-07/game-00.html)
  - [óra végi eredmény:](game-final.html)
 
 [szakkor_honlap]: http://rizsi.github.io/szakkor2014/index.html 
