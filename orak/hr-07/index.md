@@ -184,6 +184,7 @@ layout: default
   - Először jöjjön egy kis kiegészítő az előző órához. Amikor a cloudObject-en belül megírtuk a *draw()* és *logic()* függvényt akkor ez azt jelentette, hogy minden egyes később létrehozott cloud1, cloud2... példány magába foglal egy saját *draw()* és egy saját *logic()* fügvényt. Ez nem praktikus, mivel feleslegesen van meg többször ugyanaz, pocsékoljuk a memóriát...
   - Ehelyett a cloudObject-nek a **prototype**-jában hozzuk létre a *draw()* és *logic()* függvényeket, amit minden egyes példány el tud érni és használni tud. Hogy ez hogyan is néz ki?
 
+{% highlight javascript %}
         function cloudObject(x, y){ 
             this.x = x; 
             this.y = y; 
@@ -191,6 +192,7 @@ layout: default
 
         cloudObject.prototype.draw = function(){ ... }; 
         cloudObject.prototype.logic = function(){ ... }; 
+{% endhighlight %}
 
   - Ez nagyszerű! Sokkal jobb kódot írtunk! Bár igaz, hogy kevésbé szebb...
   - Majd később azt is meg fogjuk tudni csinálni, hogy egy objektum rendelkezzen egy másik objektum összes tulajdonságával: változóival és függvényeivel. Mondjuk egy új felhőtípus aminek más a képe és a mozgása,de ugyanaz a kirajzolása és a legtöbb tulajdonsága.
