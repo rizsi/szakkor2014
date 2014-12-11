@@ -21,6 +21,6 @@ layout: default
  * Belátható, hogy azon objektumok, amikre a global scope-ból és az éppen futó function scope-okból nincsen hivatkozás, már soha nem lesznek elérhetőek a program számára. Tehát ezek az objektumok törölhetőek.
  * Pontosan a fent leírt logikát hajtja végre a szemétgyűjtő algoritmus a JavaScript futtatókörnyezetben.
 
-# Házifeladat
+# Házi feladat
  * Írj olyan JavaScript programot, ami betelíti a rendelkezésre álló memóriát! Mérd meg, hogy mennyi foglalás után lép ki a program!
  
