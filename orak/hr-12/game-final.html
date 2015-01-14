@@ -90,6 +90,7 @@ platform.prototype.logic=function()
 };
 platform.prototype.draw=function(context, t)
 {
+	context.fillStyle = "black";
 	context.fillRect(t.tX(this.x), t.tY(this.y), this.width, 5);
 };
 avatar=function(x)
@@ -101,22 +102,29 @@ avatar=function(x)
 	this.velocity_y=0;
 	this.img = loadImage("stickman.png");
 	this.crouch = loadImage("crouch.png");
+	this.width = 16;
 };
 avatar.prototype.logic=function()
 {
+	var speedX = 5;
 	if(keys[KEY_RIGHT]){
-			this.x+=2;
+			this.x+=speedX;
 	}
 	if(keys[KEY_LEFT]){
-			this.x-=2;
+			this.x-=speedX;
 	}
 
+	this.prevY = this.y;
+	this.y += this.velocity_y;
+	
 	if(keys[KEY_UP]&&this.talajon)
 	{
 	  this.velocity_y=17;
 		this.y+=1;
 	}
+	
 	this.talajon=false;
+	
 	if(this.y<=0)
 	{
 	  this.y=0; this.velocity_y=0; this.talajon=true;
@@ -126,7 +134,7 @@ avatar.prototype.logic=function()
 		if(elements[i] instanceof platform)
 		{
 			var p=elements[i];
-			if(p.x<this.x && p.x+p.width > this.x)
+			if(p.x<this.x +this.width && p.x+p.width > this.x)
 			{
 				if(this.prevY>=p.y && this.y<=p.y)
 				{
@@ -140,8 +148,6 @@ avatar.prototype.logic=function()
 	  this.velocity_y-=1; // g*dT hasrautes
 	}
 	
-	this.prevY = this.y;
-	this.y += this.velocity_y;
 
 	if(keys[KEY_DOWN]){
 		this.currentImg=this.crouch;
@@ -170,6 +176,10 @@ function initialize (){
 	context = canvas["getContext"]('2d');
 	keys={};
 	
+	kameraT =new transformation();
+	kameraT.celx = canvas.width/2;
+	kameraT.cely = 0;
+	
 	elements = [];
 	
 	for(var i=0; i<5 ; i++){
@@ -179,8 +189,8 @@ function initialize (){
 	for(var i=0; i<5; i++){
 		elements.push(new thing(Math.random()*600, Math.random()*95+100, Math.ceil(Math.random()*3), "rock_spike_2"));
 	}
-	elements.push(new platform(0,100, 100, 0));
-	elements.push(new platform(100,150, 100, 0));
+	elements.push(new platform(0,100, 100));
+	elements.push(new platform(100,150, 100));
 	
 	player=new avatar(canvas.width/2);
 	elements.push(player);
@@ -195,14 +205,38 @@ function initialize (){
 function animate()
 {
 	context.clearRect(0,0,canvas.width, canvas.height);
-	context.drawImage(background, 0, 0, canvas.width, canvas.height);
-	var t=new transformation();
-	t.x=canvas.width/2-player.x;
-	t.ay=-1;
-	t.y=240;
+	//context.drawImage(background, 0, 0, canvas.width, canvas.height);
+	
+	context.fillStyle = '#00FF00';
+	context.fillRect(0, 0, canvas.width, canvas.height);
+	
 	for(var i in elements){
 		elements[i].logic();
-		elements[i].draw(context, t);
+	}
+	
+	var celx_prev = kameraT.celx;
+	kameraT.celx += (player.x - kameraT.celx)/20;
+	if(Math.abs(kameraT.celx - celx_prev) < 0.001){
+		kameraT.celx = player.x;
+	}
+	
+	
+	var cely_prev = kameraT.cely;
+	kameraT.cely += (player.y - kameraT.cely)/20;
+	if(Math.abs(kameraT.cely - cely_prev) < 0.001){
+		kameraT.cely = player.y;
+	}
+	
+	
+	kameraT.x  = canvas.width/2 - kameraT.celx;
+	kameraT.ay = -1;
+	kameraT.y  = 240 + kameraT.cely;
+	
+	context.fillStyle = '#000000';
+	context.fillRect(0, kameraT.tY(0), canvas.width, 500);
+	
+	for(var i in elements){
+		elements[i].draw(context, kameraT);
 	}
 	window.requestAnimationFrame(animate);
 }

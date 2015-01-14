@@ -211,12 +211,18 @@ function animate()
 {
 	context.clearRect(0,0,canvas.width, canvas.height);
 	context.drawImage(background, 0, 0, canvas.width, canvas.height);
-	var t=new transformation();
-	t.x=canvas.width/2-player.x;
-	t.ay=-1;
-	t.y=240;
+	var t = new transformation();
+	
 	for(var i in elements){
 		elements[i].logic();
+	}
+	
+	var celx = canvas.width/2-player.x;
+	t.x += (celx - t.x + canvas.width/2)/2;
+	t.ay=-1;
+	t.y=240;
+	
+	for(var i in elements){
 		elements[i].draw(context, t);
 	}
 	window.requestAnimationFrame(animate);
