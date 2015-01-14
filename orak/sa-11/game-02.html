@@ -1,0 +1,222 @@
+
+<meta charset="UTF-8">
+<canvas id="mycanvas" width='600' height ='300'></canvas>
+<br/>
+Ez az első HTML+JS programunk.
+<script>
+
+const KEY_LEFT=37;
+const KEY_RIGHT=39;
+const KEY_DOWN=40;
+const KEY_UP=38;
+
+function loadImage(src){
+	var image = new Image();
+	image.src = "../../game/pictures/"+src;
+	return image;
+}
+
+keyup = function(e){
+	keys[e.keyCode]=false;
+};
+
+function keydown(e){
+	keys[e.keyCode]=true;
+}
+
+cloudObject = function(x, y, velocity_x){
+	this.x = x;
+	this.y = y;
+	this.velocity_x = velocity_x;
+	this.alpha = 0.5;
+
+	this.img = loadImage("../../game/pictures/mistic_cloud.png"); //mistic_cloud.png
+};
+
+cloudObject.prototype.logic = function(){
+	this.x += this.velocity_x;
+	if(this.x > 600){
+		this.x = -300;
+	}
+};
+
+cloudObject.prototype.draw = function(context, t){
+	context.globalAlpha = this.alpha;
+	context.drawImage(this.img, t.tX(this.x), t.tY(this.y));
+	context.globalAlpha = 1;
+};
+
+transformation = function()
+{
+	this.x=0;
+	this.y=0;
+	this.ay=1;
+	this.ax=1;
+};
+transformation.prototype.tX=function(x)
+{
+	return this.ax*x+this.x;
+};
+transformation.prototype.tY=function(y)
+{
+	return this.ay*y+this.y;
+};
+
+thing = function(x, y, z, pic){
+	this.x = x;
+	this.y = y;
+	this.z = z;
+
+	this.img = loadImage("../../game/pictures/"+pic+".png");
+
+};
+
+thing.prototype.logic = function(){
+};
+
+thing.prototype.draw = function(context, t){
+	context.drawImage(this.img,
+		 t.tX(this.x), t.tY(this.y));
+};
+
+platform = function(x, y, width)
+{
+	this.x=x;
+	this.y=y;
+	this.width=width;
+};
+platform.prototype.logic=function()
+{
+};
+platform.prototype.draw=function(context, t)
+{
+	context.fillRect(t.tX(this.x), t.tY(this.y), this.width, 5);
+};
+avatar=function(x)
+{
+	this.x=x;
+	this.y=0;
+	this.prevY=0;
+	this.velocity_x=0;
+	this.velocity_y=0;
+	this.img = loadImage("stickman.png");
+	this.crouch = loadImage("crouch.png");
+};
+avatar.prototype.logic=function()
+{
+	if(keys[KEY_RIGHT]){
+			this.x+=2;
+	}
+	if(keys[KEY_LEFT]){
+			this.x-=2;
+	}
+
+	if(keys[KEY_UP]&&this.talajon)
+	{
+	  this.velocity_y=17;
+		this.y+=1;
+	}
+	this.talajon=false;
+	if(this.y<=0)
+	{
+	  this.y=0; this.velocity_y=0; this.talajon=true;
+	}
+	for(i in elements)
+	{
+		if(elements[i] instanceof platform)
+		{
+			var p=elements[i];
+			if(p.x<this.x && p.x+p.width > this.x)
+			{
+				if(this.prevY>=p.y && this.y<=p.y)
+				{
+				  this.y=p.y; this.velocity_y=0; this.talajon=true;
+				}
+			}
+		}
+	}
+	if(!this.talajon)
+	{
+	  this.velocity_y-=1; // g*dT hasrautes
+	}
+	
+	this.prevY = this.y;
+	this.y += this.velocity_y;
+
+	var img;
+	if(keys[KEY_DOWN]){
+		this.currentImg=this.crouch;
+	}else{
+		this.currentImg=this.img;
+	}
+	console.info("avatar logic");
+};
+avatar.prototype.draw=function(context, t)
+{
+	console.info("avatar draw");
+	context.drawImage(this.currentImg, t.tX(this.x), t.tY(this.y)-64);
+};
+cim=function()
+{
+};
+cim.prototype.logic=function()
+{
+	console.info("Cim logic");
+};
+cim.prototype.draw=function(context, t)
+{
+	console.info("Cim draw");
+	context.fillText("Szig szakkör játéka!", 600/2-40, 20);
+};
+
+
+function initialize (){
+	canvas = document.getElementById('mycanvas');
+	context = canvas["getContext"]('2d');
+	keys={};
+	
+	elements = [];
+	
+	for(i=0; i<5 ; i++){
+		elements.push(new cloudObject(Math.random()*600,Math.random()*(300), Math.random()));
+	}
+	
+	for(i=0; i<5; i++){
+		elements.push(new thing(Math.random()*600, Math.random()*95+100, Math.ceil(Math.random()*3), "rock_spike_2"));
+	}
+	elements.push(new platform(0,100, 100, 0));
+	elements.push(new platform(100,150, 100, 0));
+	
+	player=new avatar(canvas.width/2);
+	elements.push(player);
+	elements.push(new cim());
+	
+	background = loadImage("background_tile.png");
+	
+	document.body.addEventListener("keydown", keydown);
+	document.body.addEventListener("keyup", keyup);
+}
+
+function animate()
+{
+	context.clearRect(0,0,canvas.width, canvas.height);
+	context.drawImage(background, 0, 0, canvas.width, canvas.height);
+	var t=new transformation();
+	t.x=canvas.width/2-player.x;
+	t.ay=-1;
+	t.y=240;
+	for(i in elements){
+		elements[i].logic();
+		elements[i].draw(context, t);
+	}
+	window.requestAnimationFrame(animate);
+}
+
+window.addEventListener("load", function()
+{
+	initialize();
+	animate();
+});
+</script>
+
+
