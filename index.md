@@ -17,25 +17,28 @@ Gimnáziumi szakkör a 2014/2015-ös tanévben.
  - [Negyedik óra anyaga](orak/sa-04/index.html)
  - [Ötödik óra anyaga](orak/sa-05/index.html)
  - [Hatodik óra anyaga](orak/hr-06/index.html)
- - [Hetedik óra anyaga](orak/hr-07/index.html) 
+ - [Hetedik óra anyaga](orak/hr-07/index.html)
  - [Nyolcadik óra anyaga](orak/sa-08/index.html)
- - [Kilencedik óra anyaga](orak/sa-09/index.html) 
+ - [Kilencedik óra anyaga](orak/sa-09/index.html)
  - [Tizedik óra anyaga](orak/sa-10/index.html)
  - [Tizenegyedik óra anyaga](orak/sa-11/index.html)
+ - [Tizenkettedik óra anyaga](orak/hr-12/index.html)
+ - [Tizenharmadik óra anyaga](orak/hr-13/index.html)
 
-## Folytatás terv
+## Óraterv:
 
- - játék mechanika finomhangolás
+ - 12. óra: Játék finomhangolás
    - játékos-platform viszony
    - játékos sebesség
-   - futás
- - kameramozgás
- - hang effektek
- - tüske-akadály - lent, fent
+   - kameramozgás
+ - 13. óra: Akadály
+   - tüskék elhelyezése
+   - "primitív" halál effekt
+   - futás (ha belefér)
+ - 14. óra: Zene a játékban
+   - Hang állományok betöltése, lejátszása
  - csuszás - akadály alatt
  - gombaszörny
  - game-over effekt
  - győzelem effekt
  - pálya készítés
-
-

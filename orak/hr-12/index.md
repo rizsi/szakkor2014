@@ -4,10 +4,10 @@ layout: default
 # Játék finomhangolás
 
  - [2014/2015 informatika szakkör][szakkor_honlap] tizenkettedik órája
- - [kiindulási állapot: előző óra vége](game-00.html)
- - [óra végi eredmény:](game-final.html)
+ - Kiindulási állapot: [előző óra vége](game-00.html)
+ - Óra végi eredmény: [game-final.html](game-final.html)
 
-[szakkor_honlap]: http://rizsi.github.io/szakkor2014/index.html 
+[szakkor_honlap]: http://rizsi.github.io/szakkor2014/index.html
 
 --------
 
@@ -27,7 +27,7 @@ layout: default
     - A platform rendes érzékelése
     - A kameramozgás dinamikussá tétele
     - Ugrás, mozgás finomhangolása
-    - "Tüskék" helyes elhelyezése
+    - ~~"Tüskék" helyes elhelyezése~~
 
 --------
 
@@ -45,12 +45,8 @@ layout: default
   - Matematika a háttérben...
   - Programkód!
 
-## Tüskék méretezése, elhelyezése
-
-  - Mit szeretnénk? Hogyan működne jól akadálynak?
-  - ...
 ----------
 
 # Házi feladat:
 
- - ...
+ - Nem volt.

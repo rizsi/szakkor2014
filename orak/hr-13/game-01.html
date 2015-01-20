@@ -1,0 +1,109 @@
+
+<meta charset="UTF-8">
+<canvas id="mycanvas" width='600' height ='300'></canvas>
+<br/>
+Ez az első HTML+JS programunk.
+<script src="avatar.js"></script>
+<script src="elements.js"></script>
+<script>
+
+const KEY_LEFT=37;
+const KEY_RIGHT=39;
+const KEY_DOWN=40;
+const KEY_UP=38;
+
+function loadImage(src){
+	var image = new Image();
+	image.src = "../../game/pictures/"+src;
+	return image;
+}
+
+keyup = function(e){
+	keys[e.keyCode]=false;
+};
+
+function keydown(e){
+	keys[e.keyCode]=true;
+}
+
+
+function initialize (){
+	canvas = document.getElementById('mycanvas');
+	context = canvas["getContext"]('2d');
+	keys={};
+	
+	kameraT =new transformation();
+	kameraT.celx = canvas.width/2;
+	kameraT.cely = 0;
+	
+	elements = [];
+	
+	for(var i=0; i<5 ; i++){
+		elements.push(new cloudObject(Math.random()*600,Math.random()*(300), Math.random()));
+	}
+	
+	for(var i=0; i<5; i++){
+		elements.push(new thing(Math.random()*600, Math.random()*95+100, Math.ceil(Math.random()*3), "rock_spike_2"));
+	}
+	elements.push(new platform(0,100, 100));
+	elements.push(new platform(100,150, 100));
+	
+	player=new avatar(canvas.width/2);
+	elements.push(player);
+	elements.push(new cim());
+	
+	background = loadImage("background_tile.png");
+	
+	document.body.addEventListener("keydown", keydown);
+	document.body.addEventListener("keyup", keyup);
+}
+
+function animate()
+{
+	context.clearRect(0,0,canvas.width, canvas.height);
+	//context.drawImage(background, 0, 0, canvas.width, canvas.height);
+	
+	context.fillStyle = '#00FF00';
+	context.fillRect(0, 0, canvas.width, canvas.height);
+	
+	for(var i in elements){
+		elements[i].logic();
+	}
+	
+	var celx_prev = kameraT.celx;
+	kameraT.celx += (player.x - kameraT.celx)/20;
+	if(Math.abs(kameraT.celx - celx_prev) < 0.001){
+		kameraT.celx = player.x;
+	}
+	
+	
+	var cely_prev = kameraT.cely;
+	var leosztas = 20-19*(1-Math.pow(Math.E, -Math.abs(player.y - cely_prev)/30));
+	console.log(leosztas);
+	kameraT.cely += (player.y - kameraT.cely)/leosztas;
+	if(Math.abs(kameraT.cely - cely_prev) < 0.001){
+		kameraT.cely = player.y;
+	}
+	
+	
+	kameraT.x  = canvas.width/2 - kameraT.celx;
+	kameraT.ay = -1;
+	kameraT.y  = 240 + kameraT.cely;
+	
+	context.fillStyle = '#000000';
+	context.fillRect(0, kameraT.tY(0), canvas.width, 500);
+	
+	for(var i in elements){
+		elements[i].draw(context, kameraT);
+	}
+	window.requestAnimationFrame(animate);
+}
+
+window.addEventListener("load", function()
+{
+	initialize();
+	animate();
+});
+</script>
+
+
