@@ -8,25 +8,10 @@ avatar = function(x){
 	this.img = loadImage("stickman.png");
 	this.crouch = loadImage("crouch.png");
 	this.width = 16;
+	this.height = 64;
 };
 
-avatar.prototype.logic = function(){
-
-	var speedX = 5;
-	
-	if(keys[KEY_RIGHT]){
-			this.x += speedX;
-	}if(keys[KEY_LEFT]){
-			this.x -= speedX;
-	}
-
-	this.prevY = this.y;
-	this.y += this.velocity_y;
-	
-	if(keys[KEY_UP] && this.talajon){
-		this.velocity_y = 17;
-		this.y += 1;
-	}
+avatar.prototype.platformCheck = function(){
 	
 	this.talajon=false;
 	
@@ -46,6 +31,52 @@ avatar.prototype.logic = function(){
 			}
 		}
 	}
+}
+
+avatar.prototype.death = function(){
+	console.log("Game over!");
+	this.x = 0;
+	this.y = 0;
+}
+
+avatar.prototype.spikeCheck = function(){
+	for(var i in elements){
+		if(elements[i] instanceof spike){
+			var p=elements[i];
+			
+			if(p.x<this.x +this.width && p.x+p.width > this.x){
+				/*console.log("player.y = "+this.y);
+				console.log("spike.y = "+p.y);
+				console.log("spike.height = "+p.height);
+				console.log("player.height = "+this.height);*/
+				if(p.y<this.y+this.height && p.y+p.height > this.y){
+					this.death();
+				}
+			}
+		}
+	}
+}
+
+avatar.prototype.logic = function(){
+
+	var speedX = 5;
+	
+	if(keys[KEY_RIGHT]){
+			this.x += speedX;
+	}if(keys[KEY_LEFT]){
+			this.x -= speedX;
+	}
+
+	this.prevY = this.y;
+	this.y += this.velocity_y;
+	
+	if(keys[KEY_UP] && this.talajon){
+		this.velocity_y = 14;
+		this.y += 0.001;
+	}
+	
+	this.platformCheck();
+	this.spikeCheck();
 	
 	if(!this.talajon){
 	  this.velocity_y-=1;
