@@ -11,7 +11,7 @@ layout: default
 
 --------
 
-## Röpi
+## Röpi (Tudom, hogy gonosz)
 
  - Hogyan hajtunk végre egy parancsot egy kollekció összes elemén?
  - Írd fel a kódot, ha a kollekció neve: tomb
@@ -23,18 +23,12 @@ layout: default
 
 ## A Mai óra menete:
 
- -
+ - Ugrás magasság szabályozása, platformmagasságok.
+ - Tüskék elhelyezése, érzékelése
+ - Kamera követés finomhangolása?
 
---------
-
-
-
-## Tüskék méretezése, elhelyezése
-
-- Mit szeretnénk? Hogyan működne jól akadálynak?
-- ...
 ----------
 
 # Házi feladat:
 
-- ...
+- pálya készítése, legalább 10 elemből (platform, tüske)

@@ -61,6 +61,8 @@ function initialize (){
 	
 	elements.push(new platform(0,PlatformHeight, PlatformWidth));
 	elements.push(new platform(PlatformWidth,PlatformHeight*2, PlatformWidth));
+
+	elements.push(new thing(0,0, 10, "bck_tree"));
 	
 	player = new avatar(0/*canvas.width/2*/);
 	elements.push(player);
