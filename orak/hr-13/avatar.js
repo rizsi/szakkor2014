@@ -40,22 +40,20 @@ avatar.prototype.death = function(){
 }
 
 avatar.prototype.spikeCheck = function(){
+
 	for(var i in elements){
 		if(elements[i] instanceof spike){
 			var p=elements[i];
-			
 			if(p.x<this.x +this.width && p.x+p.width > this.x){
-				/*console.log("player.y = "+this.y);
-				console.log("spike.y = "+p.y);
-				console.log("spike.height = "+p.height);
-				console.log("player.height = "+this.height);*/
-				if(p.y<this.y+this.height && p.y+p.height > this.y){
-					this.death();
+				if(p.y<this.y +this.height && p.y+p.height > this.y){
+					console.log("Meghaltál!");
+					this.x = 0;
+					this.y = 0;
 				}
 			}
 		}
 	}
-}
+};
 
 avatar.prototype.logic = function(){
 

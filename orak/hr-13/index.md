@@ -23,6 +23,7 @@ layout: default
 
 ## A Mai óra menete:
 
+ - Program blokkokra szedése
  - Ugrás magasság szabályozása, platformmagasságok.
  - Tüskék elhelyezése, érzékelése
  - Kamera követés finomhangolása?
