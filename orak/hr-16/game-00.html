@@ -67,6 +67,9 @@ function initialize (){
 	
 	elements = [];
 	
+	player = new avatar(0/*canvas.width/2*/);
+	elements.push(player);
+	
 	for(var i=0; i<5 ; i++){
 		elements.push(new cloudObject(Math.random()*600,Math.random()*(300), Math.random()));
 	}
@@ -76,20 +79,26 @@ function initialize (){
 		elements.push(new thing(Math.random()*600, Math.random()*95+100, Math.ceil(Math.random()*3), "rock_spike_2"));
 	}
 	*/
+	var tmp = new spike(2*PlatformWidth, PlatformHeight, PlatformWidth*1.3, PlatformHeight);
+	elements.push(tmp);
+	player.addCollosionTest(tmp);
 	
-	elements.push(new spike(2*PlatformWidth, PlatformHeight, PlatformWidth*1.3, PlatformHeight));
-	elements.push(new spike(2*PlatformWidth, 0 , PlatformWidth*1.3, PlatformHeight));
-
-	elements.push(new spike(6*PlatformWidth, PlatformHeight-10, PlatformWidth*1.3, PlatformHeight));
+	tmp = new spike(2*PlatformWidth, 0 , PlatformWidth*1.3, PlatformHeight)
+	elements.push(tmp);
+	player.addCollosionTest(tmp);
+	
+	tmp = new spike(6*PlatformWidth, PlatformHeight-10, PlatformWidth*1.3, PlatformHeight);
+	elements.push(tmp);
+	player.addCollosionTest(tmp);
 	
 	elements.push(new platform(0,PlatformHeight, PlatformWidth));
 	elements.push(new platform(PlatformWidth,PlatformHeight*2, PlatformWidth));
-	elements.push(new mushroom());
+	tmp = new mushroom();
+	elements.push(tmp);
+	player.addCollosionTest(tmp);
 
 	elements.push(new thing(0,0, 10, "bck_tree"));
 	
-	player = new avatar(0/*canvas.width/2*/);
-	elements.push(player);
 	elements.push(new cim());
 	
 	//background = loadImage("background_tile.png");

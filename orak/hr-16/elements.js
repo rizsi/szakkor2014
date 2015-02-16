@@ -83,6 +83,10 @@ spike = function(x, y, width, height){
 
 spike.prototype.logic = function(){};
 
+spike.prototype.collision = function(p){
+	p.death();
+};
+
 spike.prototype.draw = function(context, t){
 	var count = Math.round(this.width/(this.a*this.height));
 	
@@ -90,12 +94,12 @@ spike.prototype.draw = function(context, t){
 	if(count < 1){
 		count=1;
 	}
-		var width_c = this.width/count;
+	var width_c = this.width/count;
 		
-		for(var i=0; i<count; i++){
-			context.drawImage(this.img,
-				 t.tX(this.x+i*width_c), t.tY(this.y)-this.height, width_c, this.height);
-		}	
+	for(var i=0; i<count; i++){
+		context.drawImage(this.img,
+			 t.tX(this.x+i*width_c), t.tY(this.y)-this.height, width_c, this.height);
+	}	
 };
 
 //===============================================
@@ -129,37 +133,44 @@ cim.prototype.draw=function(context, t){
 //       Mushroom
 
 mushroom=function(){
-this.x0=450;
-this.y=0;
-this.x1=750;
-this.x=this.x0;
-this.speed=4;
-this.width=40;
-this.height=40;
-this.img = loadImage("gomba.png");
+	this.x0=450;
+	this.y=0;
+	this.x1=750;
+	this.x=this.x0;
+	this.speed=4;
+	this.width=40;
+	this.height=40;
+	this.img = loadImage("gomba.png");
 };
 mushroom.prototype.logic=function(){
-	if(this.x<=this.x1 && this.x>=this.x0)
-	{
+	if(this.x<=this.x1 && this.x>=this.x0){
 		this.x+=this.speed;
-	}else
-	{
-		if(this.x0>this.x)
-		{
+	}else{
+		if(this.x0>this.x){
 			this.x=this.x0;
-		}else
-		{
+		}else{
 			this.x=this.x1;
 		}
 		this.speed*=-1;	
 	}
 };
-mushroom.prototype.death=function()
-{
-elements.splice(elements.indexOf(this),1);
+
+
+mushroom.prototype.collision = function(p){
+	if(p.prevY >= this.y+this.height) {
+		p.removeCollosionTest(this);
+		this.death();
+	}else {
+		p.death();
+	}
 }
+
+mushroom.prototype.death=function(){
+	elements.splice(elements.indexOf(this),1);
+}
+
 mushroom.prototype.draw=function(context,t){
-context.drawImage(this.img,
-		 t.tX(this.x), t.tY(this.y+2)-this.height+Math.sin(clock/2.0)*2);
+	context.drawImage(this.img,
+			 t.tX(this.x), t.tY(this.y+2)-this.height+Math.sin(clock/2.0)*2);
 };
 

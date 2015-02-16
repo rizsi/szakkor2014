@@ -11,7 +11,17 @@ avatar = function(x){
 	this.standingHeight=64;
 	this.crouchHeight=44;
 	this.height = this.standingHeight;
+	
+	this.collisionTest = [];
 };
+
+avatar.prototype.addCollosionTest = function(toCheck){
+	this.collisionTest.push(toCheck);
+}
+
+avatar.prototype.removeCollosionTest = function(toCheck){
+	this.collisionTest.splice(this.collisionTest.indexOf(toCheck), 1);
+}
 
 avatar.prototype.platformCheck = function(){
 	
@@ -42,23 +52,6 @@ avatar.prototype.death = function(){
 	this.y = 0;
 }
 
-avatar.prototype.spikeCheck = function(){
-	for(var i in elements){
-		if(elements[i] instanceof spike){
-			var p=elements[i];
-			
-			if(p.x<this.x +this.width && p.x+p.width > this.x){
-				/*console.log("player.y = "+this.y);
-				console.log("spike.y = "+p.y);
-				console.log("spike.height = "+p.height);
-				console.log("player.height = "+this.height);*/
-				if(p.y<this.y+this.height && p.y+p.height-3 > this.y){
-					this.death();
-				}
-			}
-		}
-	}
-}
 avatar.prototype.mushroomCheck = function(){
 	for(var i in elements){
 		if(elements[i] instanceof mushroom){
@@ -100,8 +93,18 @@ avatar.prototype.logic = function(){
 	}
 	
 	this.platformCheck();
-	this.spikeCheck();
-	this.mushroomCheck();
+	//this.spikeCheck();
+	//this.mushroomCheck();
+	
+	for(var i in this.collisionTest){
+		var p = this.collisionTest[i];
+		if(p.x<this.x +this.width && p.x+p.width > this.x){
+			if(p.y<this.y+this.height && p.y+p.height > this.y){
+				p.collision(this);
+			}
+		}
+	}
+	
 	if(!this.talajon){
 	  this.velocity_y-=1;
 	}
