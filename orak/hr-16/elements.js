@@ -63,7 +63,7 @@ thing.prototype.draw = function(context, t){
 //					Spikes
 
 spike = function(x, y, width, height){
-	var correcty = 10;
+	var correcty = 0;//10;
 	this.a = 104/236;
 	this.x = x;
 	this.y = y-correcty;
@@ -119,14 +119,21 @@ platform.prototype.draw = function(context, t){
 };
 
 //===============================================
-//				Cim
+//				text
 
-cim=function(){
+text=function(text, x, y){
+	this.text = text;
+	this.x = x;
+	this.y = y;
 };
-cim.prototype.logic=function(){
+
+text.prototype.logic=function(){
 };
-cim.prototype.draw=function(context, t){
-	context.fillText("Szig szakkör játéka!", 600/2-40, 20);
+
+text.prototype.draw=function(context, t){
+	context.fillStyle = "black";
+	context.globalAlpha = 1;
+	context.fillText(this.text, this.x, this.y);
 };
 
 //=============================================
@@ -174,3 +181,33 @@ mushroom.prototype.draw=function(context,t){
 			 t.tX(this.x), t.tY(this.y+2)-this.height+Math.sin(clock/2.0)*2);
 };
 
+//===============================================
+//				coin
+
+coin=function(x, y){
+	this.y=y;
+	this.x=x;
+	this.width=40;
+	this.height=40;
+	this.img = loadImage("coin.png");
+};
+coin.prototype.logic=function(){
+	//forgás animáció
+};
+
+
+coin.prototype.collision = function(p){
+	money++;
+	moneyText.text = "Money = "+money+"€";
+	p.removeCollosionTest(this);
+	this.death();
+}
+
+coin.prototype.death=function(){
+	elements.splice(elements.indexOf(this),1);
+}
+
+coin.prototype.draw=function(context,t){
+	context.drawImage(this.img,
+			 t.tX(this.x), t.tY(this.y));
+};

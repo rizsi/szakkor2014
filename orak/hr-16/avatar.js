@@ -47,9 +47,14 @@ avatar.prototype.platformCheck = function(){
 
 avatar.prototype.death = function(){
 	new Audio(explosionSound.src).play();
-	console.log("Game over!");
+	//console.log("Game over!");
 	this.x = 0;
 	this.y = 0;
+	life--;
+	lifeText.text = "life: "+life;
+	if(life <= 0){
+		gameOver();
+	}
 }
 
 avatar.prototype.mushroomCheck = function(){

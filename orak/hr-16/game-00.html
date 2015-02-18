@@ -59,7 +59,9 @@ function initialize (){
 	canvas = document.getElementById('mycanvas');
 	context = canvas["getContext"]('2d');
 	keys={};
-  clock=0;
+	clock=0;
+	money = 0;
+	life = 3;
 	
 	kameraT =new transformation();
 	kameraT.celx = 0;//canvas.width/2;
@@ -67,8 +69,8 @@ function initialize (){
 	
 	elements = [];
 	
+	
 	player = new avatar(0/*canvas.width/2*/);
-	elements.push(player);
 	
 	for(var i=0; i<5 ; i++){
 		elements.push(new cloudObject(Math.random()*600,Math.random()*(300), Math.random()));
@@ -87,7 +89,7 @@ function initialize (){
 	elements.push(tmp);
 	player.addCollosionTest(tmp);
 	
-	tmp = new spike(6*PlatformWidth, PlatformHeight-10, PlatformWidth*1.3, PlatformHeight);
+	tmp = new spike(6*PlatformWidth, PlatformHeight*0.6, PlatformWidth*1.3, PlatformHeight);
 	elements.push(tmp);
 	player.addCollosionTest(tmp);
 	
@@ -99,14 +101,36 @@ function initialize (){
 
 	elements.push(new thing(0,0, 10, "bck_tree"));
 	
-	elements.push(new cim());
+	elements.push(new text("Szig szakkör játéka!", 600/2-40, 20));
 	
-	//background = loadImage("background_tile.png");
+	moneyText = new text("Money: 0€", 10, 15);
+	elements.push(moneyText);
+	
+	lifeText = new text("life: 3", 10, 35);
+	elements.push(lifeText);
+	
+	
+	tmp = new coin(5*PlatformWidth, PlatformHeight/2);
+	elements.push(tmp);
+	player.addCollosionTest(tmp);
+	
+	tmp = new coin(-PlatformWidth, PlatformHeight/2);
+	elements.push(tmp);
+	player.addCollosionTest(tmp);
+	
+	elements.push(player);
 	
 	document.body.addEventListener("keydown", keydown);
 	document.body.addEventListener("keyup", keyup);
 }
 
+function gameOver(){
+	elements.splice(0, elements.length);
+	elements.push(new text("Game Over!", 600/2-40, 140));
+	background_color = "#FF0F0F";
+}
+	
+	
 function animate()
 {
 	context.clearRect(0,0,canvas.width, canvas.height);
@@ -147,7 +171,7 @@ function animate()
 	context.fillRect(0, kameraT.tY(0), canvas.width, 500);
 	
 	window.requestAnimationFrame(animate);
- clock++;
+	clock++;
 }
 
 window.addEventListener("load", function(){
