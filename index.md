@@ -24,6 +24,7 @@ Gimnáziumi szakkör a 2014/2015-ös tanévben.
  - [Tizenegyedik óra anyaga](orak/sa-11/index.html)
  - [Tizenkettedik óra anyaga](orak/hr-12/index.html)
  - [Tizenharmadik óra anyaga](orak/hr-13/index.html)
+ - [Tizenhatodik óra anyaga](orak/hr-16/index.html)
 
 ## Óraterv:
 
@@ -37,8 +38,13 @@ Gimnáziumi szakkör a 2014/2015-ös tanévben.
    - futás (ha belefér)
  - 14. óra: Zene a játékban
    - Hang állományok betöltése, lejátszása
- - csuszás - akadály alatt
- - gombaszörny
- - game-over effekt
+ - 15. óra: Pályabővítés
+   - csuszás - akadály alatt
+   - gombaszörny
+ - 16. óra: pénz, életpont
+   - Játék interfész: életpont, pénz kijelzés
+   - Bővített game-over effekt
+   - Általános játékos-játékelem ütközésfigyelés
+   - Pénzérme játékelem
  - győzelem effekt
  - pálya készítés
