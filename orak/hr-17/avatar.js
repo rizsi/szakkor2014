@@ -11,17 +11,19 @@ avatar = function(x){
 	this.standingHeight=64;
 	this.crouchHeight=44;
 	this.height = this.standingHeight;
-	
-	this.collisionTest = [];
+	this.collisionCheck = [];
 };
 
-avatar.prototype.addCollosionTest = function(toCheck){
-	this.collisionTest.push(toCheck);
+avatar.prototype.addCollisionCheck = function(item){
+	this.collisionCheck.push(item);
 }
 
-avatar.prototype.removeCollosionTest = function(toCheck){
-	this.collisionTest.splice(this.collisionTest.indexOf(toCheck), 1);
+avatar.prototype.removeCollisionCheck = function(item){
+	this.collisionCheck.splice(
+		this.collisionCheck.indexOf(item), 1);
+	//console.log("remove mushroom");
 }
+
 
 avatar.prototype.platformCheck = function(){
 	
@@ -47,13 +49,29 @@ avatar.prototype.platformCheck = function(){
 
 avatar.prototype.death = function(){
 	new Audio(explosionSound.src).play();
-	//console.log("Game over!");
+	life--;
+	if(life <= 0)
+		gameOver();
+	
 	this.x = 0;
 	this.y = 0;
-	life--;
-	lifeText.text = "life: "+life;
-	if(life <= 0){
-		gameOver();
+}
+
+avatar.prototype.spikeCheck = function(){
+	for(var i in elements){
+		if(elements[i] instanceof spike){
+			var p=elements[i];
+			
+			if(p.x<this.x +this.width && p.x+p.width > this.x){
+				/*console.log("player.y = "+this.y);
+				console.log("spike.y = "+p.y);
+				console.log("spike.height = "+p.height);
+				console.log("player.height = "+this.height);*/
+				if(p.y<this.y+this.height && p.y+p.height-3 > this.y){
+					this.death();
+				}
+			}
+		}
 	}
 }
 
@@ -83,6 +101,14 @@ avatar.prototype.logic = function(){
 
 	var speedX = 5;
 	
+	if(keys[KEY_DOWN]){
+		this.currentImg=this.crouch;
+		this.height=this.crouchHeight;
+	}else{
+		this.currentImg=this.img;
+		this.height=this.standingHeight;
+	}
+	
 	if(keys[KEY_RIGHT]){
 			this.x += speedX;
 	}if(keys[KEY_LEFT]){
@@ -98,29 +124,27 @@ avatar.prototype.logic = function(){
 	}
 	
 	this.platformCheck();
+	
 	//this.spikeCheck();
 	//this.mushroomCheck();
 	
-	for(var i in this.collisionTest){
-		var p = this.collisionTest[i];
-		if(p.x<this.x +this.width && p.x+p.width > this.x){
-			if(p.y<this.y+this.height && p.y+p.height > this.y){
-				p.collision(this);
+	//collision Test
+	for(var i in this.collisionCheck){
+		var p = this.collisionCheck[i];
+		if(p.x<this.x +this.width &&
+		   		p.x+p.width > this.x){
+			if(p.y < this.y+this.height &&
+			   		p.y + p.height> this.y){
+				p.collide(this);
 			}
 		}
 	}
+	
 	
 	if(!this.talajon){
 	  this.velocity_y-=1;
 	}
 	
-	if(keys[KEY_DOWN]){
-		this.currentImg=this.crouch;
-		this.height=this.crouchHeight;
-	}else{
-		this.currentImg=this.img;
-		this.height=this.standingHeight;
-	}
 };
 
 avatar.prototype.draw=function(context, t){
