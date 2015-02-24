@@ -46,5 +46,8 @@ Gimnáziumi szakkör a 2014/2015-ös tanévben.
    - Bővített game-over effekt
    - Általános játékos-játékelem ütközésfigyelés
    - Pénzérme játékelem
+ - 17. óra: életfiola, interfész képekkel
+   - Életfiola elem
+   - Életszámláló képpel
  - győzelem effekt
  - pálya készítés
