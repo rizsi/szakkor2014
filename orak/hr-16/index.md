@@ -19,7 +19,7 @@ layout: default
 
  - Ütközésfigyelés általánosítása
  - Életszámláló rendszer, kijelzés
- - Pénzérme játékelem
+ - Pénzérme játékelem (kép: [link](http://rizsi.github.io/szakkor2014/game/pictures/coin.png) )
 
 ----------
 
