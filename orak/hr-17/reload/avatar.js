@@ -16,7 +16,6 @@ avatar = function(x){
 
 avatar.prototype.addCollisionCheck = function(item){
 	this.collisionCheck.push(item);
-	//console.log("add "+item);
 }
 
 avatar.prototype.removeCollisionCheck = function(item){
@@ -51,7 +50,6 @@ avatar.prototype.platformCheck = function(){
 avatar.prototype.death = function(){
 	new Audio(explosionSound.src).play();
 	life--;
-	lifeText.text = "Life: "+life;
 	if(life <= 0)
 		gameOver();
 	
@@ -103,6 +101,14 @@ avatar.prototype.logic = function(){
 
 	var speedX = 5;
 	
+	if(keys[KEY_DOWN]){
+		this.currentImg=this.crouch;
+		this.height=this.crouchHeight;
+	}else{
+		this.currentImg=this.img;
+		this.height=this.standingHeight;
+	}
+	
 	if(keys[KEY_RIGHT]){
 			this.x += speedX;
 	}if(keys[KEY_LEFT]){
@@ -127,9 +133,8 @@ avatar.prototype.logic = function(){
 		var p = this.collisionCheck[i];
 		if(p.x<this.x +this.width &&
 		   		p.x+p.width > this.x){
-			
-			if(p.y<this.y+this.height &&
-			   		p.y+p.height > this.y){
+			if(p.y < this.y+this.height &&
+			   		p.y + p.height> this.y){
 				p.collide(this);
 			}
 		}
@@ -140,13 +145,6 @@ avatar.prototype.logic = function(){
 	  this.velocity_y-=1;
 	}
 	
-	if(keys[KEY_DOWN]){
-		this.currentImg=this.crouch;
-		this.height=this.crouchHeight;
-	}else{
-		this.currentImg=this.img;
-		this.height=this.standingHeight;
-	}
 };
 
 avatar.prototype.draw=function(context, t){

@@ -59,7 +59,7 @@ function initialize (){
 	canvas = document.getElementById('mycanvas');
 	context = canvas["getContext"]('2d');
 	keys={};
-  	clock=0;
+  clock=0;
 	
 	kameraT =new transformation();
 	kameraT.celx = 0;//canvas.width/2;
@@ -70,6 +70,7 @@ function initialize (){
 	life = 3;
 	
 	
+	player = new avatar(0/*canvas.width/2*/);
 	
 	for(var i=0; i<5 ; i++){
 		elements.push(new cloudObject(Math.random()*600,Math.random()*(300), Math.random()));
@@ -93,7 +94,6 @@ function initialize (){
 
 	elements.push(new thing(0,0, 10, "bck_tree"));
 	
-	player = new avatar(0/*canvas.width/2*/);
 	elements.push(player);
 	
 	elements.push(new text("Szig szakkör játéka!", 600/2-40, 20));
@@ -101,26 +101,24 @@ function initialize (){
 	
 	
 	
-	//lifeText = new text("Life: 3", 20, 20);
-	moneyText = new text("Money: 0€", 20, 50);
+	lifeText = new text("Life: 3", 20, 20);
+	moneyText = new text("Money: 0€", 20, 40);
 	
-	//elements.push(lifeText);
+	elements.push(lifeText);
 	elements.push(moneyText);
 	
 	elements.push(new coin(
 		-PlatformWidth,PlatformHeight*2));
 	
-	elements.push(new potion(
-		-2*PlatformWidth,0));
 	
-	lifeCounter = new lifePanel(20, 30, context);
-	elements.push(lifeCounter);
+	
 	
 	for(var i in elements){
-		if(elements[i] instanceof spike ||
-		   elements[i] instanceof mushroom ||
-		   elements[i] instanceof coin ||
-		   elements[i] instanceof potion)
+		if(elements[i] instanceof spike)
+			player.addCollisionCheck(elements[i]);
+		if(elements[i] instanceof mushroom)
+			player.addCollisionCheck(elements[i]);
+		if(elements[i] instanceof coin)
 			player.addCollisionCheck(elements[i]);
 	}
 	

@@ -21,12 +21,12 @@ Uploaded: 12.04.09 | License: Attribution 3.0 | Recorded by Mike Koenig <a href=
 <script>
 function loadImage(src){
 	var image = new Image();
-	image.src = "../../../game/pictures/"+src;
+	image.src = "../../game/pictures/"+src;
 	return image;
 }
 function loadSound(src)
 {
-	return new Audio("../../../game/sounds/"+src);
+	return new Audio("../../game/sounds/"+src);
 }
 </script>
 
@@ -59,7 +59,7 @@ function initialize (){
 	canvas = document.getElementById('mycanvas');
 	context = canvas["getContext"]('2d');
 	keys={};
-  clock=0;
+  	clock=0;
 	
 	kameraT =new transformation();
 	kameraT.celx = 0;//canvas.width/2;
@@ -101,24 +101,26 @@ function initialize (){
 	
 	
 	
-	lifeText = new text("Life: 3", 20, 20);
-	moneyText = new text("Money: 0€", 20, 40);
+	//lifeText = new text("Life: 3", 20, 20);
+	moneyText = new text("Money: 0€", 20, 50);
 	
-	elements.push(lifeText);
+	//elements.push(lifeText);
 	elements.push(moneyText);
 	
 	elements.push(new coin(
 		-PlatformWidth,PlatformHeight*2));
 	
+	elements.push(new potion(
+		-2*PlatformWidth,0));
 	
-	
+	lifeCounter = new lifePanel(20, 30, context);
+	elements.push(lifeCounter);
 	
 	for(var i in elements){
-		if(elements[i] instanceof spike)
-			player.addCollisionCheck(elements[i]);
-		if(elements[i] instanceof mushroom)
-			player.addCollisionCheck(elements[i]);
-		if(elements[i] instanceof coin)
+		if(elements[i] instanceof spike ||
+		   elements[i] instanceof mushroom ||
+		   elements[i] instanceof coin ||
+		   elements[i] instanceof potion)
 			player.addCollisionCheck(elements[i]);
 	}
 	
