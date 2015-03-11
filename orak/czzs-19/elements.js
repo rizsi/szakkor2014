@@ -247,9 +247,11 @@ potion=function(x, y){
 	this.x = x;
 	this.y = y;
 	this.img = loadImage("potion.png");
-	this.width = this.img.width;
-	this.height = this.img.height;
-	player.addCollisionCheck(this);
+	that = this;
+	this.img.onload = function(){
+		that.width = this.width;
+		that.height = this.height;
+	}
 };
 
 potion.prototype.logic = function(){
@@ -270,5 +272,3 @@ potion.prototype.draw = function(context,t){
 	context.drawImage(this.img,
 		 t.tX(this.x), t.tY(this.y));
 };
-
-
