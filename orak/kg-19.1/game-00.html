@@ -108,7 +108,7 @@ function initialize (){
 	elements.push(moneyText);
 	
 	elements.push(new coin(
-		-PlatformWidth,2*PlatformHeight));
+		-PlatformWidth,PlatformHeight*2));
 	
 	
 	
@@ -169,7 +169,7 @@ function animate()
 	}
 	
 	//	Talaj
-	context.fillStyle = '#000000';
+	context.fillStyle = '#61210B';
 	context.fillRect(0, kameraT.tY(0), canvas.width, 500);
 	
 	window.requestAnimationFrame(animate);
