@@ -213,15 +213,28 @@ mushroom.prototype.draw=function(context,t){
 //       coin
 
 coin=function(x, y){
-	this.x = x;
-	this.y = y;
-	this.width=40;
+	this.x_orig = x;
+	this.x1 = x;
+	this.x2 = x + 40;
+	this.y = this.y_orig = y;
+	this.width_orig=40;
 	this.height=40;
 	this.img = loadImage("coin.png");
+	this.img_mirror=loadImage("coin_m.png");
+	this.t=0;
+	this.period= (2*Math.PI)*2;
 	//player.addCollisionCheck(this);
 };
 
 coin.prototype.logic = function(){
+	this.x1 = (this.x_orig+this.width_orig)/2 + (this.width_orig/2) * Math.cos((this.t/this.period)+Math.PI);
+	this.x2 = (this.x_orig+this.width_orig)/2 + (this.width_orig/2) * Math.cos(this.t/this.period);
+	this.x=Math.min(this.x1,this.x2);
+	this.width=Math.abs(this.x1-this.x2);
+	this.t++;
+	if(this.t/this.period>2*Math.PI){
+		this.t=0;
+	}
 };
 
 coin.prototype.collide = function(p){
@@ -236,8 +249,13 @@ coin.prototype.death = function(){
 }
 
 coin.prototype.draw = function(context,t){
-	context.drawImage(this.img,
-		 t.tX(this.x), t.tY(this.y)-this.height);
+	if(this.x1>this.x2){
+		context.drawImage(this.img_mirror,
+		 t.tX(this.x), t.tY(this.y)-this.height, this.width, this.height);
+	}else{
+		context.drawImage(this.img,
+		 t.tX(this.x), t.tY(this.y)-this.height, this.width, this.height);
+	}
 };
 
 //=============================================
