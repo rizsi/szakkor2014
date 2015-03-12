@@ -172,7 +172,6 @@ mushroom=function(){
 	this.width=40;
 	this.height=40;
 	this.img = loadImage("gomba.png");
-	player.addCollisionCheck(this);
 };
 mushroom.prototype.logic=function(){
 	if(this.x<=this.x1 && this.x>=this.x0)
