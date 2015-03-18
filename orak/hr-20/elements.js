@@ -1,19 +1,60 @@
 //===============================================
 //					CloudObject
 
-cloudObject = function(x, y, velocity_x){
-	this.x = x;
-	this.y = y;
-	this.velocity_x = velocity_x;
-	this.alpha = 0.5;
-
-	this.img = loadImage("../../game/pictures/mistic_cloud.png"); //mistic_cloud.png
+cloudObject = function(){
+	this.x = this.y = 0;
+	this.alpha = 0;
+	this.alpha_max = 0;
+	this.t = 0;
+	this.lifePeriod = 2;
+	this.velocity_x = 0;
+	
+	this.img = loadImage("../../game/pictures/mistic_cloud.png");
+	
+	this.img.parent = this;
+	this.img.onload = function(){
+		this.parent.width = this.width;
+		this.parent.height = this.height;
+		this.parent.respawn();
+	}
 };
 
+cloudObject.prototype.respawn = function(){
+	this.alpha = 0;
+	this.alpha_max = 0.3 + Math.random() * 0.8;
+	this.t = 0;
+	this.lifePeriod = 3 + Math.random() * 20;
+	this.velocity_x = 0.5 + Math.random() * 2;
+	
+	
+	var x1 = kameraT.x - 600 - this.width;
+	var x2 = kameraT.x + 600/2 - this.width/2;
+
+	var y1 = kameraT.y + this.height/2;
+	var y2 = kameraT.y - this.height/2;
+	var y_min = 0 + this.height
+
+	if(y2 < y_min){
+		y2 = y_min;
+	}
+
+	this.x = x1+Math.random()*(x2-x1);
+	this.y = y2+Math.random()*(y1-y2);
+}
+
 cloudObject.prototype.logic = function(){
+	this.t ++;
 	this.x += this.velocity_x;
-	if(this.x > 600){
-		this.x = -300;
+	
+	var atlag_a     = this.alpha_max/2;
+	var amplitudo_a = this.alpha_max/2
+	var fazis_a     = Math.PI
+	var periodus_a  = (2*Math.PI)*this.lifePeriod;
+	
+	this.alpha = atlag_a + amplitudo_a * Math.cos(fazis_a+this.t/periodus_a);
+	
+	if(this.t/periodus_a > 2*Math.PI){
+		this.respawn();
 	}
 };
 

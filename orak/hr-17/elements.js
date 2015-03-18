@@ -218,7 +218,10 @@ coin=function(x, y){
 	this.width=40;
 	this.height=40;
 	this.img = loadImage("coin.png");
-	player.addCollisionCheck(this);
+	
+	
+	
+	//player.addCollisionCheck(this);
 };
 
 coin.prototype.logic = function(){
@@ -237,7 +240,7 @@ coin.prototype.death = function(){
 
 coin.prototype.draw = function(context,t){
 	context.drawImage(this.img,
-		 t.tX(this.x), t.tY(this.y));
+		 t.tX(this.x), t.tY(this.y)-this.height);
 };
 
 //=============================================
@@ -252,21 +255,21 @@ potion=function(x, y){
 	player.addCollisionCheck(this);
 };
 
-coin.prototype.logic = function(){
+potion.prototype.logic = function(){
 };
 
-coin.prototype.collide = function(p){
+potion.prototype.collide = function(p){
 	life++;
-	lifeText.setText("Life: "+life);
+	lifeText.text = "Life: "+life;
 	this.death();
 }
 
-coin.prototype.death = function(){
+potion.prototype.death = function(){
 	elements.splice(elements.indexOf(this),1);
 	player.removeCollisionCheck(this);
 }
 
-coin.prototype.draw = function(context,t){
+potion.prototype.draw = function(context,t){
 	context.drawImage(this.img,
 		 t.tX(this.x), t.tY(this.y));
 };

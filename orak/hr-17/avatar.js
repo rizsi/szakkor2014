@@ -127,9 +127,8 @@ avatar.prototype.logic = function(){
 		var p = this.collisionCheck[i];
 		if(p.x<this.x +this.width &&
 		   		p.x+p.width > this.x){
-			
-			if(p.y<this.y+this.height &&
-			   		p.y+p.height > this.y){
+			if(p.y < this.y+this.height &&
+			   		p.y + p.height> this.y){
 				p.collide(this);
 			}
 		}
