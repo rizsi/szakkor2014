@@ -15,16 +15,17 @@ cloudObject = function(){
 	this.img.onload = function(){
 		this.parent.width = this.width;
 		this.parent.height = this.height;
-		this.parent.respawn();
+		this.parent.respawn(Math.random()*Math.PI*2);//Kezdőfázist adunk neki
 	}
 };
 
-cloudObject.prototype.respawn = function(){
+cloudObject.prototype.respawn = function(startPhase){
 	this.alpha = 0;
 	this.alpha_max = 0.3 + Math.random() * 0.5;
 	this.t = 0;
 	this.lifePeriod = 5 + Math.random() * 20;
 	this.velocity_x = 0.2 + Math.random() * 1;
+	this.fazis_a = startPhase+Math.PI;
 	
 	
 	var x1 = kameraT.x - 600 - this.width;
@@ -33,11 +34,6 @@ cloudObject.prototype.respawn = function(){
 	var y1 = kameraT.y + this.height/2;
 	var y2 = kameraT.y -300 - this.height/2;
 	var y_min = 0 + this.height;
-	
-	this.x1 = x1;
-	this.x2 = x2;
-	this.y1 = y1;
-	this.y2 = y2;
 
 	if(y2 < y_min){
 		y2 = y_min;
@@ -52,14 +48,13 @@ cloudObject.prototype.logic = function(){
 	this.x += this.velocity_x;
 	
 	var atlag_a     = this.alpha_max/2;
-	var amplitudo_a = this.alpha_max/2
-	var fazis_a     = Math.PI
+	var amplitudo_a = this.alpha_max/2;
 	var periodus_a  = (2*Math.PI)*this.lifePeriod;
 	
-	this.alpha = atlag_a + amplitudo_a * Math.cos(fazis_a+this.t/periodus_a);
+	this.alpha = atlag_a + amplitudo_a * Math.cos(this.fazis_a+this.t/periodus_a);
 	
 	if(this.t/periodus_a > 2*Math.PI){
-		this.respawn();
+		this.respawn(0);//Kezdőfázisa 0
 	}
 };
 
