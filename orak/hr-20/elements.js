@@ -53,7 +53,7 @@ cloudObject.prototype.logic = function(){
 	
 	this.alpha = atlag_a + amplitudo_a * Math.cos(this.fazis_a+this.t/periodus_a);
 	
-	if(this.t/periodus_a > 2*Math.PI){
+	if(this.t/periodus_a +this.fazis_a > 2*Math.PI){
 		this.respawn(0);//Kezdőfázisa 0
 	}
 };
