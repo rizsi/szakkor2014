@@ -21,18 +21,23 @@ cloudObject = function(){
 
 cloudObject.prototype.respawn = function(){
 	this.alpha = 0;
-	this.alpha_max = 0.3 + Math.random() * 0.8;
+	this.alpha_max = 0.3 + Math.random() * 0.5;
 	this.t = 0;
-	this.lifePeriod = 3 + Math.random() * 20;
-	this.velocity_x = 0.5 + Math.random() * 2;
+	this.lifePeriod = 5 + Math.random() * 20;
+	this.velocity_x = 0.2 + Math.random() * 1;
 	
 	
 	var x1 = kameraT.x - 600 - this.width;
-	var x2 = kameraT.x + 600/2 - this.width/2;
+	var x2 = kameraT.x + this.width/2;
 
 	var y1 = kameraT.y + this.height/2;
-	var y2 = kameraT.y - this.height/2;
-	var y_min = 0 + this.height
+	var y2 = kameraT.y -300 - this.height/2;
+	var y_min = 0 + this.height;
+	
+	this.x1 = x1;
+	this.x2 = x2;
+	this.y1 = y1;
+	this.y2 = y2;
 
 	if(y2 < y_min){
 		y2 = y_min;
@@ -62,6 +67,17 @@ cloudObject.prototype.draw = function(context, t){
 	context.globalAlpha = this.alpha;
 	context.drawImage(this.img, t.tX(this.x), t.tY(this.y));
 	context.globalAlpha = 1;
+	
+	/*	A képernyő kereteihez képest 10px-el "beljebb lévő" téglalap rajzolása
+	var x1 = kameraT.x - 600 + 10;
+	var x2 = kameraT.x -10;
+
+	var y1 = kameraT.y -10 ;
+	var y2 = kameraT.y - 300 +10;
+	context.fillStyle = '#00FF00';
+	context.fillRect(t.tX(x1), t.tY(y1), x2-x1, y1-y2);
+	*/
+	
 };
 
 //===============================================
