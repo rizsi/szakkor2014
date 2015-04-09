@@ -53,6 +53,9 @@ layout: default
  - Indítsátok el a játékunkat úgy, hogy a nodejs szervert! Próbáljátok ki az otthoni gépetekről, hogy működik-e?
  - Az alábbi paranccsal el lehet indítnai úgy a nodejs szervert, hogy az SSH kilépés után is fusson:
    - $ nohup nodejs server.js &
+ - Leállítás:
+   - $ killall -u myself nodejs
+   - Leállítja az összes futó nodejs nevű programot, amit a te felhasználód indított (myself helyére a szerveren lévő felhasználónevedet írd!)
  - Csináljátok meg, hogy fixen fusson a programotok, és küldjétek el a linket emailen, amivel meg lehet nézni!
  - Próbáljatok fájlokat szerkeszteni - pl a program.html tartalmát - joe, nano és vi editorokkal (használjatok netes kereséseket, hogy hogy kell ezeket használni!)
 
