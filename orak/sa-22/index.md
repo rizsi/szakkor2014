@@ -41,9 +41,7 @@ layout: default
 ## python szerver, ami a kép és hangfájlokat visszaadja
 
  - Hogy óra végéig össze tudjuk rakni azt, hogy a szerverről működjön a programunk egy python HTTP szervert indítottunk a szakkor2014/game lönyvtárból, hogy ez ossza meg a statikus tartalmat (képek, hangfájl). Ezt később le fogjuk cserélni egy nodejs alapú implementációra, hogy egyetlen szerverről menjen minden.
- - Indítása a szakkor2014/game könyvtárból: $ python -m SimpleHTTPServer 8000
- - Ahol a 8000 a kívánt port, ahol a webszerver nyílni fog.
- - Ha nem a 8000-es porton indítjátok a "segéd" webszervert, akkor a programban is át kell írni a hivatkozásokat - a program.html elején!
+ - Ehelyett egy apache szerverre tettem a game könyvtár elérhetőségét, tehát a képek elérése: 	image.src = "http://rizsi.com/pictures/"+src;
 
 ## Óra után készült el
 
@@ -52,7 +50,11 @@ layout: default
 
 ## Házi feladat
  - Lépjetek be a VPS szerverre
- - Indítsátok el a játékunkat úgy, hogy a nodejs szervert, és a python szervert is elindítjátok! Próbáljátok ki az otthoni gépetekről, hogy működik-e?
+ - Indítsátok el a játékunkat úgy, hogy a nodejs szervert! Próbáljátok ki az otthoni gépetekről, hogy működik-e?
+ - Az alábbi paranccsal el lehet indítnai úgy a nodejs szervert, hogy az SSH kilépés után is fusson:
+   - $ nohup nodejs server.js &
+ - Csináljátok meg, hogy fixen fusson a programotok, és küldjétek el a linket emailen, amivel meg lehet nézni!
  - Próbáljatok fájlokat szerkeszteni - pl a program.html tartalmát - joe, nano és vi editorokkal (használjatok netes kereséseket, hogy hogy kell ezeket használni!)
+
 
 
