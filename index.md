@@ -25,6 +25,8 @@ Gimnáziumi szakkör a 2014/2015-ös tanévben.
  - [Tizenkettedik óra anyaga](orak/hr-12/index.html)
  - [Tizenharmadik óra anyaga](orak/hr-13/index.html)
  - [Tizenhatodik óra anyaga](orak/hr-16/index.html)
+ - [Tizennyolcadik óra anyaga](orak/sa-18/index.html)
+ - [Huszonegyedik óra anyaga](orak/sa-21/index.html)
 
 ## Óraterv:
 
@@ -51,3 +53,4 @@ Gimnáziumi szakkör a 2014/2015-ös tanévben.
    - Életszámláló képpel
  - győzelem effekt
  - pálya készítés
+
