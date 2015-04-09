@@ -27,6 +27,7 @@ Gimnáziumi szakkör a 2014/2015-ös tanévben.
  - [Tizenhatodik óra anyaga](orak/hr-16/index.html)
  - [Tizennyolcadik óra anyaga](orak/sa-18/index.html)
  - [Huszonegyedik óra anyaga](orak/sa-21/index.html)
+ - [Huszonkettedik óra anyaga](orak/sa-22/index.html)
 
 ## Óraterv:
 
