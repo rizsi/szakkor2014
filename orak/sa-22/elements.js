@@ -9,7 +9,7 @@ cloudObject = function(){
 	this.lifePeriod = 2;
 	this.velocity_x = 0;
 	
-	this.img = loadImage("../../game/pictures/mistic_cloud.png");
+	this.img = loadImage("mistic_cloud.png");
 	
 	this.img.parent = this;
 	this.img.onload = function(){
