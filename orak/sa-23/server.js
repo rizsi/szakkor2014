@@ -1,6 +1,8 @@
 var http = require('http');
 var fs=require('fs');
 var url=require('url');
+var nodeStatic=require('node-static');
+var fileServer = new nodeStatic.Server('../../game');
 var program=fs.readFileSync('program.html');
 var elements=fs.readFileSync('elements.js');
 var avatar=fs.readFileSync('avatar.js');
@@ -9,8 +11,8 @@ http.createServer(function (req, res) {
   if("/program.html"==uri)  { replyHtml(req, res, program); return;}
   if("/elements.js"==uri)  { replyJS(req, res, elements); return;}
   if("/avatar.js"==uri)  { replyJS(req, res, avatar); return;}
-
-  replyHtml(req, res, uri);
+  fileServer.serve(req, res);
+//  replyHtml(req, res, uri);
 }).listen(9615);
 
 replyHtml = function(req, res, file)
