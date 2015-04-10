@@ -25,5 +25,17 @@ layout: default
 
 ## kommunikáció a futó böngészőben és a szerveren futó program között
 
+ - Telepítjük a websocket nodejs csomagot a szerveren:
+   - $ npm install webserver
+ - A szerveren létrehozunk egy websocket szolgáltatást, ami képes:
+   - kapcsolat létrejöttét regisztrálja
+   - üzeneteket tud fogadni
+   - üzenetet tud küldeni
+ - A kliensen is létrehozunk egy websocketet ami a szerverhez kapcsolódik:
+   - induláskor kapcsolódik
+   - ha sikerült a kapcsolat, akkor üzenetet küld
+   - az üzeneteket fogadja
+
+
 
 
