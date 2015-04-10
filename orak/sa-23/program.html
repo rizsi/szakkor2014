@@ -32,6 +32,7 @@ function loadSound(src)
 
 <script src="elements.js"></script>
 <script src="avatar.js"></script>
+<script src="communication.js"></script>
 
 <script>
 
@@ -131,6 +132,7 @@ function initialize (){
 	
 	document.body.addEventListener("keydown", keydown);
 	document.body.addEventListener("keyup", keyup);
+	new communication();
 }
 
 function animate()

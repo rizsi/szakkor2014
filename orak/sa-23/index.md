@@ -23,6 +23,7 @@ layout: default
  - A node-static komponens felhasználásával a server.js programban megvalósítjuk azt, hogy amennyiben nem a html, vagy a js fájlokat kéri a browser, akkor a ../../game könyvtárból adjuk vissza a fájlokat.
  - Így a képek és hangok elérési útvonalát újra módosítanunk kell (immáron remélhetőleg véglegesen).
 
+## kommunikáció a futó böngészőben és a szerveren futó program között
 
 
 
