@@ -18,10 +18,11 @@ communication=function(){
 communication.prototype.login=function()
 {
   console.info("WS connected!");
-  this.connection.send("Login from user!");
+  this.connection.send(JSON.stringify({msg: "Login from user!"}));
 };
 communication.prototype.receive=function(message)
 {
-  console.info("received: "+message.data);
+  var msg=JSON.parse(message.data);
+  console.info("received: "+JSON.stringify(msg));
 };
 

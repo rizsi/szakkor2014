@@ -31,9 +31,10 @@ ClientHandler=function(connection)
 ClientHandler.prototype.receive=function(message)
 {
   if (message.type === 'utf8') {
-    console.info(""+message.utf8Data);
+    var msg=JSON.parse(message.utf8Data);
+    this.connection.sendUTF(JSON.stringify( {msg: 
+"Greetings from server!", rep: msg}));
   }
-  this.connection.sendUTF("Greetings from server!");
 };
 ClientHandler.prototype.close=function(connection)
 {

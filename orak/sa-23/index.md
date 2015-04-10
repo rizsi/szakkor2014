@@ -36,6 +36,14 @@ layout: default
    - ha sikerült a kapcsolat, akkor üzenetet küld
    - az üzeneteket fogadja
 
+## Kommunikáció JSON formátummal
+ - alap esetben stringet tudunk küldeni. Azt megoldani, hogy egy üzenetben több adattagot tudjunk küldeni, mondjuk az avatar koordinátáit összefűzzük egy stringbe, majd az üzenetet a másik oldalon szétbontsuk elég sok munka lenne.
+ - Ezt a problémát úgy hívják, hogy adat sorosítás (serialization/deserialization)
+ - A JSON formátum használatával Javascript objektumokat tudunk küldeni könnyen. Előnye, hogy teljes objektum szerkezeteket ír és olvas stringbe/ből. Az adat sorosítás problémáját megoldja.
+   - Ha például ezt a stringet akarjuk elküldeni, akkor is az eszképelést automatikusan megoldja a rendszer: alma"'árvíztűrőtükörfúrógép
+   - A JSON objektum, amin keresztül a sorosítás elérhető a modern JavaScript motoroknak beépítetten része (régebbi böngészőkben nem biztos, hogy működik)
+ - Írjuk át a programot úgy, hogy JSON objektumot küldjön!
+
 
 
 
