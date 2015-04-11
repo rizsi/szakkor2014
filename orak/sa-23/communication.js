@@ -33,7 +33,7 @@ communication.prototype.receive=function(message)
     var remoteId=this.getRemoteId(msg.from);
     if(!elements.es[remoteId])
     {
-      var t=new thing(0,0,0,"stickman.png");
+      var t=new RemoteAvatar();
       t.id=remoteId;
       elements.put(t);
     }

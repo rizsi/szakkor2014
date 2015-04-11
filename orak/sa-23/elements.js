@@ -129,9 +129,9 @@ RemoteAvatar = function(){
 	this.height = this.img.height;
 };
 
-thing.prototype.logic = function(){};
+RemoteAvatar.prototype.logic = function(){};
 
-thing.prototype.draw = function(context, t){
+RemoteAvatar.prototype.draw = function(context, t){
 	context.drawImage(this.img,
 		 t.tX(this.x), t.tY(this.y)-this.height);
 };
