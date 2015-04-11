@@ -1,4 +1,9 @@
 //===============================================
+//					Elements map
+Elements=function(){this.ctr=0;this.es={};};
+Elements.prototype.push=function(obj){obj.id=this.ctr++;this.es[obj.id]=obj;};
+Elements.prototype.removeObject=function(obj){delete(this.es[obj.id]);};
+//===============================================
 //					CloudObject
 
 cloudObject = function(){
@@ -251,7 +256,7 @@ mushroom.prototype.collide = function(p){
 }
 
 mushroom.prototype.death = function(){
-	elements.splice(elements.indexOf(this),1);
+	elements.removeObject(this);
 	player.removeCollisionCheck(this);
 }
 
@@ -295,7 +300,7 @@ coin.prototype.collide = function(p){
 }
 
 coin.prototype.death = function(){
-	elements.splice(elements.indexOf(this),1);
+	elements.removeObject(this);
 	player.removeCollisionCheck(this);
 }
 
@@ -333,7 +338,7 @@ potion.prototype.collide = function(p){
 }
 
 potion.prototype.death = function(){
-	elements.splice(elements.indexOf(this),1);
+	elements.removeObject(this);
 	player.removeCollisionCheck(this);
 }
 

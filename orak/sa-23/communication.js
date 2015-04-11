@@ -23,6 +23,18 @@ communication.prototype.login=function()
 communication.prototype.receive=function(message)
 {
   var msg=JSON.parse(message.data);
-  console.info("received: "+JSON.stringify(msg));
+  if(msg.id)
+  {
+    this.id=msg.id;
+    console.info("set id to: "+this.id);
+  }
+//  console.info("received: "+JSON.stringify(msg));
+};
+communication.prototype.send=function(message)
+{
+  if(this.id)
+  {
+    this.connection.send(JSON.stringify(message));
+  }
 };
 

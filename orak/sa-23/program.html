@@ -54,7 +54,6 @@ function keydown(e){
 	keys[e.keyCode]=true;
 }
 
-
 function initialize (){
 	explosionSound=loadSound('Bomb-SoundBible.com-891110113.mp3');
 	canvas = document.getElementById('mycanvas');
@@ -66,7 +65,7 @@ function initialize (){
 	kameraT.celx = 0;//canvas.width/2;
 	kameraT.cely = 0;
 	
-	elements = [];
+	elements = new Elements();
 	money = 0;
 	life = 3;
 	
@@ -114,15 +113,15 @@ function initialize (){
 	
 	
 	
-	for(var i in elements){
-		if(elements[i] instanceof spike)
-			player.addCollisionCheck(elements[i]);
-		if(elements[i] instanceof mushroom)
-			player.addCollisionCheck(elements[i]);
-		if(elements[i] instanceof coin)
-			player.addCollisionCheck(elements[i]);
-		if(elements[i] instanceof potion)
-			player.addCollisionCheck(elements[i]);
+	for(var i in elements.es){
+		if(elements.es[i] instanceof spike)
+			player.addCollisionCheck(elements.es[i]);
+		if(elements.es[i] instanceof mushroom)
+			player.addCollisionCheck(elements.es[i]);
+		if(elements.es[i] instanceof coin)
+			player.addCollisionCheck(elements.es[i]);
+		if(elements.es[i] instanceof potion)
+			player.addCollisionCheck(elements.es[i]);
 	}
 	
 	
@@ -132,7 +131,7 @@ function initialize (){
 	
 	document.body.addEventListener("keydown", keydown);
 	document.body.addEventListener("keyup", keyup);
-	new communication();
+	server=new communication();
 }
 
 function animate()
@@ -143,8 +142,8 @@ function animate()
 	context.fillStyle = background_color;
 	context.fillRect(0, 0, canvas.width, canvas.height);
 	
-	for(var i in elements){
-		elements[i].logic();
+	for(var i in elements.es){
+		elements.es[i].logic();
 	}
 	
 	var celx_prev = kameraT.celx;
@@ -166,14 +165,14 @@ function animate()
 	kameraT.ay = -1;
 	kameraT.y  = 240 + kameraT.cely;
 	
-	for(var i in elements){
-		elements[i].draw(context, kameraT);
+	for(var i in elements.es){
+		elements.es[i].draw(context, kameraT);
 	}
 	
 	//	Talaj
 	context.fillStyle = '#000000';
 	context.fillRect(0, kameraT.tY(0), canvas.width, 500);
-	
+	server.send({x: player.x, y: player.y});
 	window.requestAnimationFrame(animate);
  clock++;
 }

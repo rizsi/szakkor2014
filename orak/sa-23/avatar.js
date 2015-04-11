@@ -34,9 +34,9 @@ avatar.prototype.platformCheck = function(){
 	  this.y=0; this.velocity_y=0; this.talajon=true;
 	}
 	
-	for(var i in elements){
-		if(elements[i] instanceof platform){
-			var p=elements[i];
+	for(var i in elements.es){
+		if(elements.es[i] instanceof platform){
+			var p=elements.es[i];
 			if(p.x<this.x +this.width && p.x+p.width > this.x){
 				if(this.prevY>=p.y && this.y<=p.y){
 				  this.y=p.y;
@@ -60,9 +60,9 @@ avatar.prototype.death = function(){
 }
 
 avatar.prototype.spikeCheck = function(){
-	for(var i in elements){
-		if(elements[i] instanceof spike){
-			var p=elements[i];
+	for(var i in elements.es){
+		if(elements.es[i] instanceof spike){
+			var p=elements.es[i];
 			
 			if(p.x<this.x +this.width && p.x+p.width > this.x){
 				/*console.log("player.y = "+this.y);
@@ -78,9 +78,9 @@ avatar.prototype.spikeCheck = function(){
 }
 
 avatar.prototype.mushroomCheck = function(){
-	for(var i in elements){
-		if(elements[i] instanceof mushroom){
-			var p=elements[i];
+	for(var i in elements.es){
+		if(elements.es[i] instanceof mushroom){
+			var p=elements.es[i];
 			
 			if(p.x<=this.x +this.width && p.x+p.width >= this.x){
 				/*console.log("player.y = "+this.y);
