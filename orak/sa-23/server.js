@@ -11,7 +11,7 @@ var communication=fs.readFileSync('communication.js');
 var WebSocketServer = require('websocket').server;
 var httpServer=http.createServer(function (req, res) {
   var uri = url.parse(req.url).pathname;
-  if("/program.html"==uri)  { replyHtml(req, res, program); return;}
+  if("/program.html"==uri||"/"==uri||""==uri||"/index.html"==uri)  { replyHtml(req, res, program); return;}
   if("/elements.js"==uri)  { replyJS(req, res, elements); return;}
   if("/avatar.js"==uri)  { replyJS(req, res, avatar); return;}
   if("/communication.js"==uri)  { replyJS(req, res, communication); return;}
