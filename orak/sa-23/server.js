@@ -29,7 +29,8 @@ var wsServer=new WebSocketServer({httpServer: httpServer});
 
 ClientsManager=function()
 {
-  this.currentId=0;
+  // We count from 1 because 0 means false
+  this.currentId=1;
   this.clients={};
 };
 ClientsManager.prototype.registerClient=function(client)

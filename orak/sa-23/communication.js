@@ -28,6 +28,23 @@ communication.prototype.receive=function(message)
     this.id=msg.id;
     console.info("set id to: "+this.id);
   }
+  if(msg.from)
+  {
+    var remoteId=this.getRemoteId(msg.from);
+    if(!elements.es[remoteId])
+    {
+      var t=new thing(0,0,0,"stickman.png");
+      t.id=remoteId;
+      elements.put(t);
+    }
+    elements.es[remoteId].x=msg.msg.x;
+    elements.es[remoteId].y=msg.msg.y;
+  }
+  if(msg.disconnected)
+  {
+    var remoteId=this.getRemoteId(msg.disconnected);
+    elements.removeById(remoteId);
+  }
 //  console.info("received: "+JSON.stringify(msg));
 };
 communication.prototype.send=function(message)
@@ -37,4 +54,7 @@ communication.prototype.send=function(message)
     this.connection.send(JSON.stringify(message));
   }
 };
-
+communication.prototype.getRemoteId=function(id)
+{
+  return "remote"+id;
+};

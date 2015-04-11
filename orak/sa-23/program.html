@@ -22,6 +22,8 @@ Uploaded: 12.04.09 | License: Attribution 3.0 | Recorded by Mike Koenig <a href=
 function loadImage(src){
 	var image = new Image();
 	image.src = "/pictures/"+src;
+//	console.info("Load image: "+image.src);
+//	console.info(new Error('imgload'));
 	return image;
 }
 function loadSound(src)

@@ -2,7 +2,9 @@
 //					Elements map
 Elements=function(){this.ctr=0;this.es={};};
 Elements.prototype.push=function(obj){obj.id=this.ctr++;this.es[obj.id]=obj;};
+Elements.prototype.put=function(obj){this.es[obj.id]=obj;};
 Elements.prototype.removeObject=function(obj){delete(this.es[obj.id]);};
+Elements.prototype.removeById=function(id){delete(this.es[id]);};
 //===============================================
 //					CloudObject
 
@@ -105,8 +107,7 @@ thing = function(x, y, z, pic){
 	this.x = x;
 	this.y = y;
 	this.z = z;
-	//console.log("loading iamge: "+pic);
-	this.img = loadImage("../../game/pictures/"+pic+".png");
+	this.img = loadImage(pic);
 	this.width = this.img.width;
 	this.height = this.img.height;
 };
@@ -116,6 +117,23 @@ thing.prototype.logic = function(){};
 thing.prototype.draw = function(context, t){
 	context.drawImage(this.img,
 		 t.tX(this.x), t.tY(this.y));
+};
+//===============================================
+//					RemoteAvatar
+
+RemoteAvatar = function(){
+	this.x = 0;
+	this.y = 0;
+	this.img = loadImage("stickman.png");
+	this.width = this.img.width;
+	this.height = this.img.height;
+};
+
+thing.prototype.logic = function(){};
+
+thing.prototype.draw = function(context, t){
+	context.drawImage(this.img,
+		 t.tX(this.x), t.tY(this.y)-this.height);
 };
 
 //===============================================
