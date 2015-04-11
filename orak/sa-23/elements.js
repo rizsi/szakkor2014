@@ -108,11 +108,12 @@ thing = function(x, y, z, pic){
 	this.y = y;
 	this.z = z;
 	this.img = loadImage(pic);
+};
+
+thing.prototype.logic = function(){
 	this.width = this.img.width;
 	this.height = this.img.height;
 };
-
-thing.prototype.logic = function(){};
 
 thing.prototype.draw = function(context, t){
 	context.drawImage(this.img,
@@ -125,11 +126,12 @@ RemoteAvatar = function(){
 	this.x = 0;
 	this.y = 0;
 	this.img = loadImage("stickman.png");
-	this.width = this.img.width;
-	this.height = this.img.height;
 };
 
-RemoteAvatar.prototype.logic = function(){};
+RemoteAvatar.prototype.logic = function(){
+  	this.width = this.img.width;
+	this.height = this.img.height;
+};
 
 RemoteAvatar.prototype.draw = function(context, t){
 	context.drawImage(this.img,
