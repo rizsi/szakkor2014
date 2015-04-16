@@ -23,6 +23,7 @@ layout: default
  - A node-static komponens felhasználásával a server.js programban megvalósítjuk azt, hogy amennyiben nem a html, vagy a js fájlokat kéri a browser, akkor a ../../game könyvtárból adjuk vissza a fájlokat.
  - Így a képek és hangok elérési útvonalát újra módosítanunk kell (immáron remélhetőleg véglegesen).
 
+
 ## kommunikáció a futó böngészőben és a szerveren futó program között
 
  - Telepítjük a websocket nodejs csomagot a szerveren:
@@ -31,6 +32,9 @@ layout: default
    - kapcsolat létrejöttét regisztrálja
    - üzeneteket tud fogadni
    - üzenetet tud küldeni
+
+## EDDIG JUTOTTUNK, a többi átkerül a következő órákra.
+
  - A kliensen is létrehozunk egy websocketet ami a szerverhez kapcsolódik:
    - induláskor kapcsolódik
    - ha sikerült a kapcsolat, akkor üzenetet küld
