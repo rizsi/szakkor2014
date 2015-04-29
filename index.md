@@ -29,6 +29,7 @@ Gimnáziumi szakkör a 2014/2015-ös tanévben.
  - [Huszonegyedik óra anyaga](orak/sa-21/index.html)
  - [Huszonkettedik óra anyaga](orak/sa-22/index.html)
  - [Huszonharmadik óra anyaga](orak/sa-23/index.html)
+ - [Huszonnegyedik óra anyaga](orak/hr-24/index.html)
 
 ## Óraterv:
 
@@ -53,6 +54,8 @@ Gimnáziumi szakkör a 2014/2015-ös tanévben.
  - 17. óra: életfiola, interfész képekkel
    - Életfiola elem
    - Életszámláló képpel
+ - 24. óra: multyplayer játék - interakció
+   - Vonzás és taszítás képesség beépítése
  - győzelem effekt
  - pálya készítés
 
