@@ -112,7 +112,7 @@ ClientHandler.prototype.send = function(object){
 };
 
 ClientHandler.prototype.receiveRaw = function(message){
-  if (message.type === 'utf8') {
+  if (message.type === 'utf8'){
     var msg=JSON.parse(message.utf8Data);
     this.receive(msg);
   }
@@ -140,6 +140,10 @@ var httpServer = http.createServer(httpServerFunction);
 httpServer.listen(9999);
 
 // Based on: https://gist.github.com/martinsik/2031681
+// http://www.index.hu
+// https://www.index.hu
+// ws://rizsi.hu
+// ftp://rizsi.com
 var wsServer = new WebSocketServer({httpServer: httpServer});
 
 wsServer.on('request', wsServer_onRequest);
