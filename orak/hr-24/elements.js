@@ -383,10 +383,14 @@ potion.prototype.draw = function(context,t){
 //=============================================
 //       gate
 
-gate=function(x, y){
+gate=function(x, y, front){
 	this.x = x;
 	this.y = y;
-	this.img = loadImage("cave.png");
+	if (front){
+		this.img = loadImage("cave_cut.png");
+	}else{
+		this.img = loadImage("cave.png");
+	}
 	this.img.parent = this;
 	this.img.onload = function(){
 		this.parent.width = this.width;
@@ -395,16 +399,19 @@ gate=function(x, y){
 };
 
 gate.prototype.logic = function(){
+	//console.log(this.width)
+	//console.log(this.height)
 };
 
 gate.prototype.collide = function(p){
-	if(p.x > this.x){
+	if(p.x - 80 > this.x){
 		console.log("The End");
+		win();
 	}
-}
+};
 
 gate.prototype.draw = function(context,t){
 	context.drawImage(this.img,
-		 t.tX(this.x), t.tY(this.y));
+		 t.tX(this.x), t.tY(this.y+this.height));
 };
 

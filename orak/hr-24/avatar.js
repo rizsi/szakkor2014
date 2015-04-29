@@ -16,14 +16,14 @@ avatar = function(x){
 
 avatar.prototype.addCollisionCheck = function(item){
 	this.collisionCheck.push(item);
-	//console.log("add "+item);
-}
+	console.log("add "+item.image);
+};
 
 avatar.prototype.removeCollisionCheck = function(item){
 	this.collisionCheck.splice(
 		this.collisionCheck.indexOf(item), 1);
 	//console.log("remove mushroom");
-}
+};
 
 
 avatar.prototype.platformCheck = function(){

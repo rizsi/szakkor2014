@@ -94,14 +94,17 @@ function initialize (){
 	
 	elements.push(new platform(0,PlatformHeight, PlatformWidth));
 	elements.push(new platform(PlatformWidth,PlatformHeight*2, PlatformWidth));
-	elements.push(new mushroom());
+	//elements.push(new mushroom());
 	elements.push(new potion(400, 38));
 
 //	elements.push(new thing(0,0, 10, "bck_tree"));
 	
-	elements.push(new gate(PlatformWidth*10,170))
-	elements.push(player);
+	elements.push(new gate(PlatformWidth*10,0, false))
 	
+	elements.push(player);
+	tmp = new gate(PlatformWidth*10,0, true);
+	elements.push(tmp);
+	player.addCollisionCheck(tmp);
 	elements.push(new text("Szig szakkör játéka!", 600/2-40, 20));
 	
 	
